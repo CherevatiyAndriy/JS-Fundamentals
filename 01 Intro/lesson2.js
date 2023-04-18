@@ -14,6 +14,6 @@ let res3 = (w < v);
 console.log(res3); 
 console.log(typeof res3);
 
-let res4 = w + "true";
+let res4 = w / "qwerty";
 console.log(res4);
 console.log(typeof res4);
