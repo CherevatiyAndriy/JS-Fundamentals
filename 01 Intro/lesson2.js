@@ -18,6 +18,7 @@ let res4 = w / "qwerty";
 console.log(res4);
 console.log(typeof res4);
 
-// Завдання 3
+/* Завдання 3
 const isAdult = +prompt('Ви вже досягли повнолітнього віку?');
 console.log('Результат запиту:', isAdult);
+*/
