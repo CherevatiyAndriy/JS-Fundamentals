@@ -1,4 +1,4 @@
-let x = 1;
+
 let y = 2;
 
 let res1 = "" + (x + y);
