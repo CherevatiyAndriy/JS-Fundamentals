@@ -1,7 +1,7 @@
 let x = 1;
 let y = 2;
 
-let res1 = "" + (x + y);
+let res1 = "" + (y + x);
 console.log(res1);
 console.log(typeof res1);
 
