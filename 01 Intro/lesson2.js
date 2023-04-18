@@ -2,7 +2,7 @@
 let w = 1;
 let v = 2;
 
-let res1 = "" + (w + v);
+let res1 = "" + w + v;
 console.log(res1);
 console.log(typeof res1);
 
@@ -14,6 +14,6 @@ let res3 = (w < v);
 console.log(res3); 
 console.log(typeof res3);
 
-let res4 = v / 0;
+let res4 = w / 0;
 console.log(res4);
 console.log(typeof res4);
