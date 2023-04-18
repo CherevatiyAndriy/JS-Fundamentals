@@ -1,6 +1,3 @@
-
-let y = 2;
-
 let res1 = "" + (x + y);
 console.log(res1);
 console.log(typeof res1);
