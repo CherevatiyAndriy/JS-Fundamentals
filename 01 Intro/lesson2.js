@@ -50,8 +50,8 @@ default:
      console.log("Доброго вечора");
 }
 
-let date = new Date();
-let hour = date.getHours();
+let dates = new Date();
+let hours = date.getHours();
 
 if (hour >= 23 || hour < 5) {
     console.log("Доброї ночі");
