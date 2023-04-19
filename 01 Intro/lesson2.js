@@ -1,10 +1,12 @@
 // Завдання 1
-if (d < e && e < c) {
-console.log("Висловлювання d < e < c є істинним");
-} else {
-console.log("Висловлювання d < e < c є хибним");
-}
+const a = 1;
+const b = 2;
+const c = 3;
 
+if (a < b && b < c) {
+  console.log("Висловлювання a < b < c є істинним");
+} else {
+  console.log("Висловлювання a < b < c є хибним");
 // Завдання 2
 let a = 1;
 let b = 2;
