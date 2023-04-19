@@ -3,7 +3,7 @@ const e = 3;
 const f = 6;
 const g = 9;
 if (e < f && f < g) {
-    console.log("Висловлювання істиннt");
+    console.log("Висловлювання істинне");
 } else {
     console.log("Висловлювання хибне");
 }
