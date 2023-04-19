@@ -25,10 +25,27 @@ console.log(typeof res4);
 const isAdult = +prompt('Ви вже досягли повнолітнього віку?');
 console.log('Результат запиту:', isAdult);
 if (isAdult >= 18) {
-    console.log("Ви досягли повнолітнього віку!");
+     console.log("Ви досягли повнолітнього віку!");
 } else {
-    console.log("Ви ще надто молоді!");
+     console.log("Ви ще надто молоді!");
 }
 
 // Завдання 4
 
+// Завдання 6
+let date = new Date();
+let hour = date.getHours();
+
+switch (true) {
+case (hour >= 23 || hour < 5);
+     console.log("Доброї ночі");
+break;
+case (hour >= 5 && hour < 11);
+     console.log("Доброго ранку");
+break;
+case (hour >= 11 && hour < 17);
+     console.log("Доброго дня");
+break;
+default:
+     console.log("Доброго вечора");
+}
