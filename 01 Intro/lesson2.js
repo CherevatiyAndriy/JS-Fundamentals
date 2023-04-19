@@ -21,11 +21,10 @@ console.log(typeof res4);
 // Завдання 3
 const isAdult = +prompt('Ви вже досягли повнолітнього віку?');
 console.log('Результат запиту:', isAdult);
-if (age >= 18) {
+if (isAdult >= 18) {
     console.log("Ви досягли повнолітнього віку");
     console.log("-------------------");
-}
-if (age <= 18) {
+} else {
     console.log("Ви ще надто молоді");
     console.log("-------------------");
 }
