@@ -12,16 +12,18 @@ console.log('x:', x);
 console.log('y:', y);
 
 // Завдання 4
-let Name = 'Andrii';
-let age = 32;
-let isUserLoggedIn = true;
-let password = undefined;
-let email = null;
-console.log(`Name: ${Name}, type: ${typeof (Name)}`);
-console.log(`Age: ${age}, type: ${typeof (age)}`);
-console.log(`IsUserLoggedIn: ${isUserLoggedIn}, type: ${typeof (isUserLoggedIn)}`);
-console.log(`Password: ${password}, type: ${typeof (password)}`);
-console.log(`Email: ${email}, type: ${typeof (email)}`);
+let myPersonalData = {
+    name: 'Andrii',
+    age: 32,
+    isUserLoggedIn: true,
+    password: undefined,
+    email: null
+  };
+  console.log(`Name: ${myPersonalData.name}, type: ${typeof (myPersonalData.name)}`);
+  console.log(`Age: ${myPersonalData.age}, type: ${typeof (myPersonalData.age)}`);
+  console.log(`IsUserLoggedIn: ${myPersonalData.isUserLoggedIn}, type: ${typeof (myPersonalData.isUserLoggedIn)}`);
+  console.log(`Password: ${myPersonalData.password}, type: ${typeof (myPersonalData.password)}`);
+  console.log(`Email: ${myPersonalData.email}, type: ${typeof (myPersonalData.email)}`);
 
 // Завдання 5
 const isAdult = confirm('Ви вже досягли повнолітнього віку?');
