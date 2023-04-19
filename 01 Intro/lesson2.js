@@ -32,6 +32,10 @@ if (isAdult >= 18) {
 
 // Завдання 4
 
+
+// Завдання 5 
+
+
 // Завдання 6
 let date = new Date();
 let hour = date.getHours();
