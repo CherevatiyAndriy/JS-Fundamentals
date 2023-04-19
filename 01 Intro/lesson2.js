@@ -1,24 +1,23 @@
 // Завдання 2
-let w = 1;
-let v = 2;
+let a = 1;
+let b = 2;
 
-let res1 = "" + w + v;
+let res1 = "" + a + b;
 console.log(res1);
 console.log(typeof res1);
 
-let res2 = true + "" + v;
+let res2 = true + "" + b;
 console.log(res2);
 console.log(typeof res2); 
 
-let res3 = (w < v);
+let res3 = (a < b);
 console.log(res3); 
 console.log(typeof res3);
 
-let res4 = w / "qwerty";
+let res4 = a / "qwerty";
 console.log(res4);
 console.log(typeof res4);
 
-/* Завдання 3
+// Завдання 3
 const isAdult = +prompt('Ви вже досягли повнолітнього віку?');
 console.log('Результат запиту:', isAdult);
-*/
