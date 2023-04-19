@@ -1,3 +1,10 @@
+// Завдання 1
+if (a < b && b < c) {
+console.log("Висловлювання a < b < c є істинним");
+} else {
+console.log("Висловлювання a < b < c є хибним");
+}
+
 // Завдання 2
 let a = 1;
 let b = 2;
@@ -22,9 +29,9 @@ console.log(typeof res4);
 const isAdult = +prompt('Ви вже досягли повнолітнього віку?');
 console.log('Результат запиту:', isAdult);
 if (isAdult >= 18) {
-    console.log("Ви досягли повнолітнього віку");
-    console.log("-------------------");
+    console.log("Ви досягли повнолітнього віку!");
 } else {
-    console.log("Ви ще надто молоді");
-    console.log("-------------------");
+    console.log("Ви ще надто молоді!");
 }
+
+// Завдання 4
