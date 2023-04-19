@@ -37,13 +37,13 @@ let date = new Date();
 let hour = date.getHours();
 
 switch (true) {
-case (hour >= 23 || hour < 5);
+case (hour >= 23 || hour < 5):
      console.log("Доброї ночі");
 break;
-case (hour >= 5 && hour < 11);
+case (hour >= 5 && hour < 11):
      console.log("Доброго ранку");
 break;
-case (hour >= 11 && hour < 17);
+case (hour >= 11 && hour < 17):
      console.log("Доброго дня");
 break;
 default:
