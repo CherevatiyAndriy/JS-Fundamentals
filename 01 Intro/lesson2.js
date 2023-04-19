@@ -1,12 +1,6 @@
 // Завдання 1
-const a = 1;
-const b = 2;
-const c = 3;
 
-if (a < b && b < c) {
-  console.log("Висловлювання a < b < c є істинним");
-} else {
-  console.log("Висловлювання a < b < c є хибним");
+
 // Завдання 2
 let a = 1;
 let b = 2;
@@ -37,3 +31,4 @@ if (isAdult >= 18) {
 }
 
 // Завдання 4
+
