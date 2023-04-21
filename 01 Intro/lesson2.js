@@ -38,7 +38,22 @@ if (isAdult >= 18) {
 }
 
 // Завдання 4
-
+let counts = {};
+for (let num of arr) {
+  counts[num] = counts[num] ? counts[num] + 1 : 1;
+}
+let maxCount = 0;
+let data;
+for (let num in counts) {
+  if (counts[num] > maxCount) {
+    maxCount = counts[num];
+    data = num;
+  }
+}
+let newArr = [data];
+arr = arr.filter(num => num !== parseInt(data));
+console.log(newArr); // [5]
+console.log(arr); // [4, 2, 1, 6, 3, 2]
 
 // Завдання 5 
 
