@@ -38,6 +38,7 @@ if (isAdult >= 18) {
 }
 
 // Завдання 4
+let arr = [4, 5, 2, 1, 6, 5, 3, 5, 2, 5];
 let counts = {};
 for (let num of arr) {
   counts[num] = counts[num] ? counts[num] + 1 : 1;
