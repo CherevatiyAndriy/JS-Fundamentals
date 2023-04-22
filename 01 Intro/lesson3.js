@@ -63,3 +63,17 @@ function randArray(k) {
 
     // Завдання 6 
 
+    function calc(a, b, op) {
+        let result;  
+        if (op === 1) {
+        result = a - b;
+        } else if (op === 2) {
+        result = a * b;
+        } else if (op === 3) {
+        result = a / b;
+        } else {
+        result = a + b;
+        }
+        return result;
+        } 
+        console.log(calc(10, 3, 1)); 
