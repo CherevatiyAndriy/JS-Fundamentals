@@ -18,6 +18,7 @@ function createArray(start, end) {
       }
     }
   }
+  printNumbers(1, 3);
 
 // Завдання 3 
 
