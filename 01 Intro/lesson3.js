@@ -47,3 +47,28 @@ function randArray(k) {
 
   // Завдання 5
 
+  function separateArrays(arr3) {
+    let numArr = [];
+    let strArr = [];
+    
+    for (let i = 0; i < arr3.length; i++) {
+    if (typeof arr3[i] === 'number') {
+    numArr.push(arr3[i]);
+    } else if (typeof arr3[i] === 'string') {
+    strArr.push(arr3[i]);
+    } else if (Array.isArray(arr3[i])) {
+    let nestedArr = separateArrays(arr3[i]);
+    numArr.push(...nestedArr[0]);
+    strArr.push(...nestedArr[1]);
+    }
+    }
+    
+    return [numArr, strArr];
+    }
+    
+    let arr3 = [5, "Limit", 12, "a", "3", 99, 2, [2, 4, 3, "33", "a", "text"], "strong", "broun"];
+    let arrNew = separateArrays(arr3);
+    console.log(arrNew);
+
+    // Завдання 6 
+
