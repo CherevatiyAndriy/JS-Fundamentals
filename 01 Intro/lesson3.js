@@ -11,13 +11,15 @@ function createArray(start, end) {
 
   // Завдання 2
 
-  function printNumbers(a, b) {
-    for (let i = a; i <= b; i++) {
-      for (let j = a; j <= i; j++) {
-        console.log(i);
-      }
+  function printNumbers(a, b, i = a) {
+    if (i > b) {
+      return;
     }
-  }
+    for (let j = 1; j <= i - a + 1; j++) {
+      console.log(i);
+    }
+    printNumbers(a, b, i + 1);
+  } 
   printNumbers(1, 3);
 
 // Завдання 3 
