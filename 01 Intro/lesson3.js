@@ -24,3 +24,18 @@ function createArray(start, end) {
 
 // Завдання 3 
 
+function randArray(k) {
+    const arr = [];
+    for (let i = 0; i < k; i++) {
+      const randomNum = Math.floor(Math.random() * 500) + 1;
+      arr.push(randomNum);
+    }
+    return arr;
+  }
+  
+  const myArray = randArray(5);
+  console.log(myArray);
+
+  // Завдання 4
+
+  
