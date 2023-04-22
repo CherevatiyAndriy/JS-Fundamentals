@@ -82,3 +82,18 @@ function randArray(k) {
     return result;
 }
 calc(10, 3, 1);
+
+//  Завдання 7
+
+function findUnique(arr) {
+    for(let i = 0; i < arr.length; i++) {
+      if(arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) {
+        return false;
+      }
+    }
+    return true;
+  }
+  let arr4 = [1, 2, 3, 5, 3];
+  console.log(findUnique(arr4));
+  let arr5 = [1, 2, 3, 5, 11];
+  console.log(findUnique(arr5));
