@@ -1,5 +1,6 @@
 // Завдання 1
-
+let arr = createArray(2, 9);
+console.log(arr);
 function createArray(start, end) {
     let arr = [];
     for (let i = start; i <= end; i++) {
@@ -10,4 +11,3 @@ function createArray(start, end) {
 
   // Завдання 2
 
-  
