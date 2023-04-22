@@ -38,17 +38,12 @@ function randArray(k) {
 
   // Завдання 4
 
-  function compact(arr) {
-    const uniqueArr = arr.filter((item, index) => {
-      return arr.indexOf(item) === index;
-    });
-    return uniqueArr;
+  function compact(arr1) {
+    return Array.from(new Set(arr1));
   }
-  
-  const arr = [5, 3, 4, 5, 6, 7, 3];
-  const arr2 = compact(arr);
+  const arr1 = [5, 3, 4, 5, 6, 7, 3];
+  const arr2 = compact(arr1);
   console.log(arr2);
 
   // Завдання 5
 
-  
