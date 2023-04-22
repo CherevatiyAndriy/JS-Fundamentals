@@ -62,10 +62,8 @@ function randArray(k) {
     strArr.push(...nestedArr[1]);
     }
     }
-    
     return [numArr, strArr];
     }
-    
     let arr3 = [5, "Limit", 12, "a", "3", 99, 2, [2, 4, 3, "33", "a", "text"], "strong", "broun"];
     let arrNew = separateArrays(arr3);
     console.log(arrNew);
