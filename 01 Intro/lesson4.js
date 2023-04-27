@@ -14,8 +14,8 @@ function calcRectangleArea(width, height) {
     const height = 10;
     const area = calcRectangleArea(width, height);
     console.log('Rectangle area:', area);
-  } catch (e) {
-    console.error('Error:', e.message);
+  } catch (exception) {
+    console.error('Error:', exception.message);
   }
 
 
