@@ -1,6 +1,10 @@
 // Завдання 1
 
 
+
+// Завдання 2
+
+
 // Завдання 3
 
 function calcRectangleArea(width, height) {
