@@ -18,7 +18,7 @@ function calcRectangleArea(width, height) {
     console.error('Error:', e.message);
   }
 
-  
+
 // Завдання 4
 
 class MonthException {
@@ -51,7 +51,7 @@ class MonthException {
     console.log(showMonthName(5));
     console.log(showMonthName(14));
   } catch (exception) {
-    if (e instanceof MonthException) {
+    if (exception instanceof MonthException) {
       console.log(exception.name, exception.message);
     } else {
       throw exception;
