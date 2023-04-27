@@ -5,25 +5,29 @@
 // Завдання 2
 
 function checkAge() {
+  const name = prompt("Enter your name:");
+  let age = prompt("Enter your age:");
+  const status = prompt("Enter your status (admin, moderator, user):");
   try {
-    const name = prompt('Please enter your name:');
-    const age = Number(prompt('Please enter your age:'));
-    const status = prompt('Please enter your status (admin, moderator, user):');
-    if (age < 18 || age > 70) {
-      throw new RangeError('Age must be between 18 and 70');
+    if (!age) {
+      throw new Error("The field is empty! Please enter your age");
     }
-    if (!name || !age || !status) {
-      throw new Error('The field is empty! Please enter your age');
-    }
-    if (status !== 'admin' && status !== 'moderator' && status !== 'user') {
-      throw new EvalError('Invalid status');
-    }
+    age = Number(age);
     if (isNaN(age)) {
-      throw new TypeError('Age must be a number');
+      throw new TypeError("Invalid age value. Age must be a number");
     }
-    alert('You have access to watch the movie.');
+    if (age < 18 || age > 70) {
+      throw new RangeError("Age must be between 18 and 70");
+    }
+    if (status !== "admin" && status !== "moderator" && status !== "user") {
+      throw new EvalError("Invalid status value. Valid values are admin, moderator, user");
+    }
+    console.log("Name:", name);
+    console.log("Age:", age);
+    console.log("Status:", status);
+    console.log("Access granted. Enjoy the movie!");
   } catch (error) {
-    alert(`${error.name}: ${error.message}`);
+    console.error("Error:", error.name, error.message);
   }
 }
 
