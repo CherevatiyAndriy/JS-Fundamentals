@@ -87,3 +87,21 @@ class MonthException {
 
   // Завдання 5
 
+  function showUser(id) {
+    if (id < 0) {
+      throw new Error('ID must not be negative: ' + id);
+    }
+    return { id: id };
+  }
+  function showUsers(ids) {
+    var result = [];
+    for (var i = 0; i < ids.length; i++) {
+      try {
+        result.push(showUser(ids[i]));
+      } catch (e) {
+        console.error(e.message);
+      }
+    }
+    return result;
+  }var users = showUsers([7, -12, 44, 22]);
+  console.log(users);  
