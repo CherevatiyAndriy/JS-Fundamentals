@@ -48,18 +48,20 @@ function randArray(k) {
   // Завдання 5
 
   function separateArrays(arr) {
-    return arr.reduce((acc, item) => {
-      if (typeof item === 'number' || (Array.isArray(item) && item.some(subItem => typeof subItem === 'number'))) {
-        acc[0].push(item);
-      } else if (typeof item === 'string' || (Array.isArray(item) && item.some(subItem => typeof subItem === 'string'))) {
-        acc[1].push(item);
+    const result = [[], []];
+    arr.forEach(item => {
+      if (Array.isArray(item)) {
+        const [nums, strs] = separateArrays(item);
+        result[0].push(...nums);
+        result[1].push(...strs);
+      } else if (typeof item === 'number') {
+        result[0].push(item);
+      } else if (typeof item === 'string') {
+        result[1].push(item);
       }
-      return acc;
-    }, [[], []]);
+    });
+    return result;
   }
-  let arr3 = [5, "Limit", 12, "a", "3", 99, 2, [2, 4, 3, "33", "a", "text"], "strong", "broun"];
-  let arrNew = separateArrays(arr3);
-  console.log(arrNew);
 
     // Завдання 6 
 
