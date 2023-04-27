@@ -98,8 +98,8 @@ class MonthException {
     for (var i = 0; i < ids.length; i++) {
       try {
         result.push(showUser(ids[i]));
-      } catch (e) {
-        console.error(e.message);
+      } catch (exception) {
+        console.error(exception.message);
       }
     }
     return result;
