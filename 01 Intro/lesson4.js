@@ -1,6 +1,24 @@
 // Завдання 1
 
-
+function sumSliceArray(arr, first, second) {
+  if (!Number.isInteger(first) || !Number.isInteger(second)) {
+    throw new Error('Both arguments should be integers');
+  }
+  if (first >= arr.length || second >= arr.length) {
+    throw new Error('Both arguments should be less than the length of the array');
+  }
+  if (first < 0 || second < 0) {
+    throw new Error('Both arguments should be non-negative');
+  }
+  return arr[first] + arr[second];
+}
+var arr = [1, 2, 3, 4, 5];
+try {
+  var result = sumSliceArray(arr, 2, '3');
+  console.log(result);
+} catch (exception) {
+  console.error(exception.message);
+}
 
 // Завдання 2
 
