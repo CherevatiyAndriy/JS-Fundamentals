@@ -158,6 +158,7 @@ class Worker {
   let worker2 = new Worker("Andrii Cherevatyi", 65, 22);
   worker2.showSalary();
   console.log("New experience: " + worker2.showExp);
+  worker2.showSalaryWithExperience();
   worker2.setExp = 1.5;
   console.log("New experience: " + worker2.showExp);
   worker2.showSalaryWithExperience();
@@ -165,6 +166,7 @@ class Worker {
   let worker3 = new Worker("Vladimir Cherevatyi", 39, 23);
   worker3.showSalary();
   console.log("New experience: " + worker3.showExp);
+  worker3.showSalaryWithExperience();
   worker3.setExp = 1.5;
   console.log("New experience: " + worker3.showExp);
   worker3.showSalaryWithExperience();
