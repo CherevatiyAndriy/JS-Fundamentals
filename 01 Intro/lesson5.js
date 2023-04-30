@@ -105,3 +105,71 @@ refillableMarker.refill();
 refillableMarker.print("Hello, everyone!");
 
 // Завдання 5
+
+class Worker {
+    constructor(fullName, dayRate, workingDays) {
+      this._fullName = fullName;
+      this._dayRate = dayRate;
+      this._workingDays = workingDays;
+      this._experience = 1.2;
+    }
+    showSalary() {
+      let salary = this._dayRate * this._workingDays;
+      console.log(`${this._fullName} salary: ${salary}`);
+    }
+    showSalaryWithExperience() {
+      let salary = this._dayRate * this._workingDays * this._experience;
+      console.log(`${this._fullName} salary: ${salary}`);
+    }
+    get showExp() {
+      return this._experience;
+    }
+    set setExp(value) {
+      this._experience = value;
+    }
+    get fullName() {
+      return this._fullName;
+    }
+    set fullName(value) {
+      this._fullName = value;
+    }
+    get dayRate() {
+      return this._dayRate;
+    }
+    set dayRate(value) {
+      this._dayRate = value;
+    }
+    get workingDays() {
+      return this._workingDays;
+    }
+    set workingDays(value) {
+      this._workingDays = value;
+    }
+  }
+  
+  let worker1 = new Worker("Pavlo Cherevatyi", 35, 23);
+  worker1.showSalary();
+  console.log("New experience: " + worker1.showExp);
+  worker1.showSalaryWithExperience();
+  worker1.setExp = 1.5;
+  console.log("New experience: " + worker1.showExp);
+  worker1.showSalaryWithExperience();
+  
+  let worker2 = new Worker("Andrii Cherevatyi", 65, 22);
+  worker2.showSalary();
+  worker2.setExp = 1.5;
+  worker2.showSalaryWithExperience();
+  
+  let worker3 = new Worker("Vladimir Срукумфенш", 39, 23);
+  worker3.showSalary();
+  worker3.setExp = 1.5;
+  worker3.showSalaryWithExperience();
+  
+  let workers = [worker1, worker2, worker3];
+  workers.sort((a, b) => {
+    return b.showExp * b.dayRate * b.workingDays - a.showExp * a.dayRate * a.workingDays;
+  });
+  console.log("Sorted salary:");
+  for (let worker of workers) {
+    console.log(`${worker.fullName}: ${worker.dayRate * worker.workingDays * worker.showExp}`);
+  }
