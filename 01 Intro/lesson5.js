@@ -46,7 +46,16 @@ function propsCount(currentObject) {
 
 // Завдання 3
 
-class Student extends Person {
+class Person {
+    constructor(name, surname) {
+      this.name = name;
+      this.surname = surname;
+    }
+    showFullName() {
+      console.log(`${this.surname} ${this.name}`);
+    }
+  }
+  class Student extends Person {
     constructor(name, surname, year) {
       super(name, surname);
       this.year = year;
@@ -59,11 +68,9 @@ class Student extends Person {
       return currentYear - this.year + 1;
     }
   }
-  
-  const stud1 = new Student("Andrii", "Cherevatyi", 2008);
-  stud1.showFullName("Pavlovych");
-  console.log("Current course: " + stud1.showCourse());
-
+  const stud1 = new Student("Andrii", "Cherevatyi", 2020);
+  console.log(stud1.showFullName("Pavlovych"));
+  console.log("Current course: " + stud1.showCourse()); 
 // Завдання 4
 
 
