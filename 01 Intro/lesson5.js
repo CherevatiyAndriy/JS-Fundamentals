@@ -71,9 +71,37 @@ class Person {
   const stud1 = new Student("Andrii", "Cherevatyi", 2020);
   console.log(stud1.showFullName("Pavlovych"));
   console.log("Current course: " + stud1.showCourse());
-  
+
 // Завдання 4
-
-
+// А
+class Marker {
+    constructor(color, inkAmount) {
+      this.color = color;
+      this.inkAmount = inkAmount;
+    }
+    print(text) {
+      let inkPerSymbol = 0.5;
+      let symbolsToPrint = Math.floor(this.inkAmount / inkPerSymbol);
+      let printedText = text.slice(0, symbolsToPrint);
+      this.inkAmount -= printedText.length * inkPerSymbol;
+      console.log(`%c${printedText}`, `color: ${this.color}`);
+    }
+  }
+// Б
+class RefillableMarker extends Marker {
+    constructor(color, inkAmount, refillAmount) {
+      super(color, inkAmount);
+      this.refillAmount = refillAmount;
+    }
+    refill() {
+      this.inkAmount += this.refillAmount;
+      console.log(`Marker refilled. Current ink level: ${this.inkAmount}%`);
+    }
+  }
+  const marker = new Marker("red", 80);
+marker.print("Hello, Andrii!");
+const refillableMarker = new RefillableMarker("yellow", 30, 50);
+refillableMarker.refill();
+refillableMarker.print("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
 
 // Завдання 5
