@@ -60,17 +60,17 @@ class Person {
       super(name, surname);
       this.year = year;
     }
-    showFullName(middleName) {
-      console.log(`${this.surname} ${this.name} ${middleName}`);
+    showFullName(midleName) {
+      console.log(`${this.surname} ${this.name} ${midleName}`);
     }
     showCourse() {
       let currentYear = new Date().getFullYear();
       return currentYear - this.year + 1;
     }
   }
-  const stud1 = new Student("Andrii", "Cherevatyi", 2008);
-  console.log(stud1.showFullName("Pavlovych"));
-  console.log("Current course: " + stud1.showCourse());
+  const stud1 = new Student("Andrii", "Cherevatyi", 2020);
+  console.log(stud1.showFullName("Pavlovych")); 
+  console.log("Current course: " + stud1.showCourse()); 
 
 // Завдання 4
 
