@@ -68,9 +68,10 @@ class Person {
       return currentYear - this.year + 1;
     }
   }
-  const stud1 = new Student("Andrii", "Cherevatyi", 2020);
+  const stud1 = new Student("Andrii", "Cherevatyi", 2008);
   console.log(stud1.showFullName("Pavlovych"));
-  console.log("Current course: " + stud1.showCourse()); 
+  console.log("Current course: " + stud1.showCourse());
+
 // Завдання 4
 
 
