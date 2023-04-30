@@ -102,6 +102,6 @@ class RefillableMarker extends Marker {
 marker.print("Hello, Andrii!");
 const refillableMarker = new RefillableMarker("yellow", 30, 50);
 refillableMarker.refill();
-refillableMarker.print("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+refillableMarker.print("Hello, everyone!");
 
 // Завдання 5
