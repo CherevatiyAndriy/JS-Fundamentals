@@ -46,7 +46,7 @@ function propsCount(currentObject) {
 
 // Завдання 3
 
-lass Person {
+class Person {
     constructor(name, surname) {
       this.name = name;
       this.surname = surname;
