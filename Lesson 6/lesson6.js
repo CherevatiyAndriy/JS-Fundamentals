@@ -24,7 +24,7 @@ paragraphs[1].style.color = 'red';
 paragraphs[2].style.textDecoration = 'underline';
 paragraphs[3].style.fontStyle = 'italic';
 listItems.forEach(item => {
-item.style.whiteSpace = 'nowrap';
 item.style.display = 'inline-block';
 item.style.marginRight = '10px';
+item.style.whiteSpace = 'nowrap';
 });
