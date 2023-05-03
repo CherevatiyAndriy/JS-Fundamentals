@@ -27,4 +27,5 @@ listItems.forEach(item => {
 item.style.display = 'inline-block';
 item.style.marginRight = '10px';
 item.style.whiteSpace = 'nowrap';
+item.style.wordSpacing = '0px';
 });
