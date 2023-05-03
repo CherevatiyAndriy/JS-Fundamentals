@@ -10,7 +10,7 @@ function showModal() {
   }
 
   // Завдання 2
-  const header = document.querySelector('h1');
+const header = document.querySelector('h1');
 const div = document.querySelector('#myDiv');
 const listItems = document.querySelectorAll('#myList li');
 const span = document.querySelector('span');
@@ -22,7 +22,7 @@ div.style.display = 'flex';
 div.style.flexDirection = 'column';
 div.style.alignItems = 'left';
 listItems.forEach(item => {
-  item.style.display = 'inline-block';
-  item.style.marginRight = '10px';
+item.style.display = 'inline-block';
+item.style.marginRight = '10px';
 });
 span.style.display = 'none';
