@@ -16,6 +16,7 @@ const paragraphs = div.getElementsByTagName('p');
 const listItems = document.querySelectorAll('#myList li');
 const span = document.querySelector('span');
 header.style.fontSize = '40px';
+header.style.padding = '10px';
 header.style.textAlign = 'left';
 header.style.backgroundColor = 'lightgreen';
 div.style.flexDirection = 'column';
