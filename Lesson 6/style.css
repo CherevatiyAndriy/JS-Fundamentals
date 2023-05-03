@@ -36,6 +36,7 @@
   .modal-close:focus {
     color: black;
     text-decoration: none;
-    cursor: pointer !important;
+    cursor: pointer;
+    cursor: pointer;
   }
 
