@@ -14,8 +14,9 @@ function showModal() {
 const div = document.querySelector('#myDiv');
 const listItems = document.querySelectorAll('#myList li');
 const span = document.querySelector('span');
-header.style.fontSize = '48px';
+header.style.fontSize = '40px';
 header.style.textAlign = 'left';
+header.style.backgroundColor = 'green';
 div.style.backgroundColor = '#F5F5F5';
 div.style.border = '2px solid black';
 div.style.padding = '10px';
