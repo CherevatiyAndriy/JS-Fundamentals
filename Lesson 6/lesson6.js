@@ -11,7 +11,8 @@ function showModal() {
 
   // Завдання 2
 const header = document.querySelector('h1');
-const div = document.querySelector('#myDiv');
+const div = document.getElementById('myDiv');
+const paragraphs = div.getElementsByTagName('p');
 const listItems = document.querySelectorAll('#myList li');
 const span = document.querySelector('span');
 header.style.fontSize = '40px';
@@ -21,6 +22,10 @@ div.style.padding = '10px';
 div.style.display = 'flex';
 div.style.flexDirection = 'column';
 div.style.alignItems = 'left';
+paragraphs[0].style.fontWeight = 'bold';
+paragraphs[1].style.color = 'red';
+paragraphs[2].style.textDecoration = 'underline';
+paragraphs[3].style.fontStyle = 'italic';
 listItems.forEach(item => {
 item.style.display = 'inline-block';
 item.style.marginRight = '10px';
