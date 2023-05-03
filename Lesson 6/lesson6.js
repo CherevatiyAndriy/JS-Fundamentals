@@ -25,4 +25,3 @@ listItems.forEach(item => {
 item.style.display = 'inline-block';
 item.style.marginRight = '10px';
 });
-span.style.display = 'none';
