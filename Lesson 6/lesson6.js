@@ -24,11 +24,9 @@ paragraphs[0].style.fontWeight = 'bold';
 paragraphs[1].style.color = 'red';
 paragraphs[2].style.textDecoration = 'underline';
 paragraphs[3].style.fontStyle = 'italic';
-document.addEventListener("DOMContentLoaded", function() {
 listItems.forEach(item => {
 item.style.display = 'inline-block';
 item.style.marginRight = '10px';
 item.style.whiteSpace = 'nowrap';
 });
 });
-spanElement.style.display = 'none';
