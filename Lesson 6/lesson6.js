@@ -18,8 +18,8 @@ const span = document.querySelector('span');
 header.style.fontSize = '40px';
 header.style.textAlign = 'left';
 header.style.backgroundColor = 'lightgreen';
-div.style.display = 'flex';
 
+div.style.flexDirection = 'column';
 div.style.alignItems = 'left';
 paragraphs[0].style.fontWeight = 'bold';
 paragraphs[1].style.color = 'red';
