@@ -13,6 +13,8 @@ function showModal() {
 const header = document.querySelector('h1');
 const div = document.getElementById('myDiv');
 const paragraphs = div.getElementsByTagName('p');
+const listItems = document.querySelectorAll('#myList li');
+const spanElement = document.querySelector('span');
 header.style.fontSize = '40px';
 header.style.textAlign = 'left';
 header.style.backgroundColor = 'lightgreen';
@@ -23,10 +25,10 @@ paragraphs[1].style.color = 'red';
 paragraphs[2].style.textDecoration = 'underline';
 paragraphs[3].style.fontStyle = 'italic';
 document.addEventListener("DOMContentLoaded", function() {
-const listItems = document.querySelectorAll('#myList li');
 listItems.forEach(item => {
 item.style.display = 'inline-block';
 item.style.marginRight = '10px';
 item.style.whiteSpace = 'nowrap';
 });
 });
+spanElement.style.display = 'none';
