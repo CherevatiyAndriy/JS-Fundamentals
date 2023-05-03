@@ -29,4 +29,3 @@ item.style.display = 'inline-block';
 item.style.marginRight = '10px';
 item.style.whiteSpace = 'nowrap';
 });
-});
