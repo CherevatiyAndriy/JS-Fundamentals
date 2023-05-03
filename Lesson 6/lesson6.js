@@ -19,6 +19,7 @@ header.style.fontSize = '40px';
 header.style.textAlign = 'left';
 header.style.backgroundColor = 'lightgreen';
 header.style.display = 'inline-block';
+header.style.display = 'inline-block';
 div.style.flexDirection = 'column';
 div.style.alignItems = 'left';
 paragraphs[0].style.fontWeight = 'bold';
