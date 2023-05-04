@@ -142,4 +142,8 @@ function getSizePrice(size) {
     case '9':
       return 25;
     case '10':
-      return 
+       return 30;
+      default:
+      return 0;
+      }
+      }
