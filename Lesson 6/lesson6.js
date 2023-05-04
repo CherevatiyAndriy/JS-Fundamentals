@@ -85,41 +85,11 @@ circleEl.classList.add(dataAnim);
 
 // Завдання 6
 
-function selectOption(optionElements, selectedOption) {
-  optionElements.forEach(optionElement => {
-    optionElement.classList.remove('active');
-    if (optionElement.getAttribute('data-value') === selectedOption) {
-      optionElement.classList.add('active');
-    }
-  });
-}
-sizeElements.forEach(sizeElement => {
-  sizeElement.addEventListener('click', () => {
-    sizeElements.forEach(sizeElement => {
-      sizeElement.classList.remove('active');
-    });
-    sizeElement.classList.add('active');
-    updatePrice();
-    const selectedSize = sizeElement.getAttribute('data-value');
-    selectOption(sizeOptionElements, selectedSize);
-  });
-});
-materialElements.forEach(materialElement => {
-  materialElement.addEventListener('click', () => {
-    materialElements.forEach(materialElement => {
-      materialElement.classList.remove('active');
-    });
-    materialElement.classList.add('active');
-    currentPrice = parseFloat(materialElement.getAttribute('data-price'));
-    updatePrice();
-    const selectedMaterial = materialElement.getAttribute('data-value');
-    selectOption(materialOptionElements, selectedMaterial);
-  });
-});
+const priceElement = document.getElementById('outprice');
+const colorElements = document.querySelectorAll('.color');
 colorElements.forEach(colorElement => {
-  colorElement.addEventListener('click', () => {
-    const price = colorElement.getAttribute('data-price');
-    priceElement.innerText = price;
-    selectOption(colorOptionElements, colorElement.getAttribute('data-value'));
-  });
+colorElement.addEventListener('click', () => {
+const price = colorElement.getAttribute('data-price');
+priceElement.innerText = price;
+});
 });
