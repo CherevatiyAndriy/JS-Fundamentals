@@ -58,3 +58,15 @@ outBlock.innerHTML = JSON.stringify(data);
 
 // Завдання 5
 
+const circles = document.querySelectorAll('.circle');
+circles.forEach(circle => {
+const animation = circle.dataset.anim;
+circle.classList.add(animation);
+circle.addEventListener('animationend', () => {
+console.log('Animation applied!');
+});
+});
+const circleEl = document.querySelector('.circle');
+const classList = circleEl.classList;
+const dataAnim = circleEl.getAttribute('data-anim');
+circleEl.classList.add(dataAnim);
