@@ -14,7 +14,6 @@ const header = document.querySelector('h1');
 const div = document.getElementById('myDiv');
 const paragraphs = div.getElementsByTagName('p');
 const listItems = document.querySelectorAll('#myList li');
-list.style.width = 'fit-content';
 const spanElement = document.querySelector('span');
 header.style.fontSize = '40px';
 header.style.lineHeight = '1.5';
