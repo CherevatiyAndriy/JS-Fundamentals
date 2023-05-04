@@ -31,8 +31,8 @@ paragraphs[1].style.lineHeight = '1.5';
 paragraphs[2].style.lineHeight = '1.5';
 paragraphs[3].style.lineHeight = '1.5';
 listItems.forEach(item => {
-item.style.display = 'inline';
-item.style.whiteSpace = 'nowrap';
+item.style.display = 'flex';
+item.style.flexwrap = nowrap;
 item.style.marginRight = '10px';
 item.style.lineHeight = '1.5';
 });
