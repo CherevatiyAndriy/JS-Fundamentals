@@ -87,15 +87,59 @@ circleEl.classList.add(dataAnim);
 
 const priceElement = document.getElementById('outprice');
 const colorElements = document.querySelectorAll('.color');
-const shoeElements = document.querySelectorAll('.shoe');
-colorElements.forEach((colorElement, index) => {
+const sizeElements = document.querySelectorAll('.size');
+const materialElements = document.querySelectorAll('.material');
+
+let selectedColor = document.querySelector('.color.active');
+let selectedSize = null;
+let selectedMaterial = null;
+
+colorElements.forEach(colorElement => {
   colorElement.addEventListener('click', () => {
     const price = colorElement.getAttribute('data-price');
-    const image = shoeElements[index].getAttribute(`src`);
+    const image = colorElement.getAttribute('data-image');
     priceElement.innerText = price;
-    shoeElements.forEach(shoeElement => {
-      shoeElement.classList.remove('show');
-    });
-    shoeElements[index].classList.add('show');
+    shoeElement.src = image;
+    selectedColor.classList.remove('active');
+    colorElement.classList.add('active');
+    selectedColor = colorElement;
   });
 });
+
+sizeElements.forEach(sizeElement => {
+  sizeElement.addEventListener('click', () => {
+    selectedSize = sizeElement.innerText;
+    updatePrice();
+  });
+});
+
+materialElements.forEach(materialElement => {
+  materialElement.addEventListener('click', () => {
+    const price = materialElement.getAttribute('data-price');
+    selectedMaterial = materialElement.innerText;
+    priceElement.innerText = price;
+    updatePrice();
+  });
+});
+
+function updatePrice() {
+  if (selectedColor && selectedSize && selectedMaterial) {
+    const basePrice = parseInt(selectedColor.getAttribute('data-price'));
+    const sizePrice = getSizePrice(selectedSize);
+    const materialPrice = parseInt(selectedMaterial.getAttribute('data-price'));
+    const totalPrice = basePrice + sizePrice + materialPrice;
+    priceElement.innerText = totalPrice;
+  }
+}
+function getSizePrice(size) {
+  switch (size) {
+    case '6':
+      return 10;
+    case '7':
+      return 15;
+    case '8':
+      return 20;
+    case '9':
+      return 25;
+    case '10':
+      return 
