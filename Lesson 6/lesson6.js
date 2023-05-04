@@ -29,3 +29,15 @@ item.style.display = 'inline-block';
 item.style.marginRight = '10px';
 item.style.whiteSpace = 'nowrap';
 });
+
+// Завдання 3
+const mainElement = document.createElement('main');
+mainElement.setAttribute('class', 'mainClass check item');
+const divElement = document.createElement('div');
+divElement.setAttribute('id', 'myDiv');
+const pElement = document.createElement('p');
+pElement.innerText = 'First paragraph';
+divElement.appendChild(pElement);
+mainElement.appendChild(divElement);
+const bodyElement = document.getElementsByTagName('body')[0];
+bodyElement.appendChild(mainElement);
