@@ -28,6 +28,7 @@ listItems.forEach(item => {
 item.style.display = 'inline-block';
 item.style.marginRight = '10px';
 item.style.whiteSpace = 'nowrap';
+header.style.lineHeight = '1.5';
 });
 
 // Завдання 3
