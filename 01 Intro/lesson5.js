@@ -115,75 +115,77 @@ refillableMarker.print("Hello, everyone!");
 // Завдання 5
 
 class Worker {
-    constructor(fullName, dayRate, workingDays) {
-      this._fullName = fullName;
-      this._dayRate = dayRate;
-      this._workingDays = workingDays;
-      this._experience = 1.2;
-    }
-    showSalary() {
-      let salary = this._dayRate * this._workingDays;
-      console.log(`${this._fullName} salary: ${salary}`);
-    }
-    showSalaryWithExperience() {
-      let salary = this._dayRate * this._workingDays * this._experience;
-      console.log(`${this._fullName} salary: ${salary}`);
-    }
-    get showExp() {
-      return this._experience;
-    }
-    set setExp(value) {
-      this._experience = value;
-    }
-    get fullName() {
-      return this._fullName;
-    }
-    set fullName(value) {
-      this._fullName = value;
-    }
-    get dayRate() {
-      return this._dayRate;
-    }
-    set dayRate(value) {
-      this._dayRate = value;
-    }
-    get workingDays() {
-      return this._workingDays;
-    }
-    set workingDays(value) {
-      this._workingDays = value;
-    }
+  #experience = 1.2;
+  constructor(fullName, dayRate, workingDays) {
+    this._fullName = fullName;
+    this._dayRate = dayRate;
+    this._workingDays = workingDays;
   }
-  
-  let worker1 = new Worker("Pavlo Cherevatyi", 35, 23);
-  worker1.showSalary();
-  console.log("New experience: " + worker1.showExp);
-  worker1.showSalaryWithExperience();
-  worker1.setExp = 1.5;
-  console.log("New experience: " + worker1.showExp);
-  worker1.showSalaryWithExperience();
-  
-  let worker2 = new Worker("Andrii Cherevatyi", 65, 22);
-  worker2.showSalary();
-  console.log("New experience: " + worker2.showExp);
-  worker2.showSalaryWithExperience();
-  worker2.setExp = 1.5;
-  console.log("New experience: " + worker2.showExp);
-  worker2.showSalaryWithExperience();
-  
-  let worker3 = new Worker("Vladimir Cherevatyi", 39, 23);
-  worker3.showSalary();
-  console.log("New experience: " + worker3.showExp);
-  worker3.showSalaryWithExperience();
-  worker3.setExp = 1.5;
-  console.log("New experience: " + worker3.showExp);
-  worker3.showSalaryWithExperience();
-  
-  let workers = [worker1, worker2, worker3];
-  workers.sort((a, b) => {
-    return b.showExp * b.dayRate * b.workingDays - a.showExp * a.dayRate * a.workingDays;
-  });
-  console.log("Sorted salary:");
-  for (let worker of workers) {
-    console.log(`${worker.fullName}: ${worker.dayRate * worker.workingDays * worker.showExp}`);
+  showSalary() {
+    let salary = this._dayRate * this._workingDays;
+    console.log(`${this._fullName} salary: ${salary}`);
   }
+  showSalaryWithExperience() {
+    let salary = this._dayRate * this._workingDays * this.#experience;
+    console.log(`${this._fullName} salary: ${salary}`);
+  }
+  get fullName() {
+    return this._fullName;
+  }
+  set fullName(value) {
+    this._fullName = value;
+  }
+  get dayRate() {
+    return this._dayRate;
+  }
+  set dayRate(value) {
+    this._dayRate = value;
+  }
+  get workingDays() {
+    return this._workingDays;
+  }
+  set workingDays(value) {
+    this._workingDays = value;
+  }
+  get experience() {
+    return this.#experience;
+  }
+  set experience(value) {
+    if (value < 1) {
+      throw new Error("Experience cannot be less than 1");
+    }
+    this.#experience = value;
+  }
+}
+let worker1 = new Worker("Pavlo Cherevatyi", 35, 23);
+worker1.showSalary();
+console.log("Experience: " + worker1.experience);
+worker1.showSalaryWithExperience();
+worker1.experience = 1.5;
+console.log("New experience: " + worker1.experience);
+worker1.showSalaryWithExperience();
+
+let worker2 = new Worker("Andrii Cherevatyi", 65, 22);
+worker2.showSalary();
+console.log("Experience: " + worker2.experience);
+worker2.showSalaryWithExperience();
+worker2.experience = 1.5;
+console.log("New experience: " + worker2.experience);
+worker2.showSalaryWithExperience();
+
+let worker3 = new Worker("Vladimir Cherevatyi", 39, 23);
+worker3.showSalary();
+console.log("Experience: " + worker3.experience);
+worker3.showSalaryWithExperience();
+worker3.experience = 1.5;
+console.log("New experience: " + worker3.experience);
+worker3.showSalaryWithExperience();
+
+let workers = [worker1, worker2, worker3];
+workers.sort((a, b) => {
+  return b.experience * b.dayRate * b.workingDays - a.experience * a.dayRate * a.workingDays;
+});
+console.log("Sorted salary:");
+for (let worker of workers) {
+  console.log(`${worker.fullName}: ${worker.dayRate * worker.workingDays * worker.experience}`);
+}
