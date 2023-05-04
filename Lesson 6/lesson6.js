@@ -16,7 +16,6 @@ const paragraphs = div.getElementsByTagName('p');
 const listItems = document.querySelectorAll('#myList li');
 let text = '';
 const spanElement = document.querySelector('span');
-spanElement.remove();
 header.style.fontSize = '40px';
 header.style.lineHeight = '1.5';
 header.style.textAlign = 'left';
