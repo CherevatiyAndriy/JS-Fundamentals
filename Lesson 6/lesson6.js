@@ -44,20 +44,17 @@ ul.style.textIndent = '40px';
 spans[1].style.display = 'none';
 
 // Завдання 3
-const mainElement = document.createElement('main');
 mainElement.setAttribute('class', 'mainClass check item');
 const divElement = document.createElement('div');
 divElement.setAttribute('id', 'myDiv');
 const pElement = document.createElement('p');
 pElement.innerText = 'First paragraph';
+pElement.style.fontSize = '20px';
+pElement.style.padding = '10px';
 divElement.appendChild(pElement);
 mainElement.appendChild(divElement);
 const bodyElement = document.getElementsByTagName('body')[0];
 bodyElement.appendChild(mainElement);
-const myParagraph = document.querySelector('p');
-myParagraph.style.fontSize = '20px';
-myParagraph.style.padding = '10px';
-myParagraph.style.margin = '10px';
 
 
 // Завдання 4
