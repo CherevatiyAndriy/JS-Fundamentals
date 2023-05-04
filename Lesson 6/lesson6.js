@@ -54,6 +54,10 @@ divElement.appendChild(pElement);
 mainElement.appendChild(divElement);
 const bodyElement = document.getElementsByTagName('body')[0];
 bodyElement.appendChild(mainElement);
+const myParagraph = document.querySelector('p');
+myParagraph.style.fontSize = '20px';
+myParagraph.style.padding = '10px';
+myParagraph.style.margin = '10px';
 
 
 // Завдання 4
