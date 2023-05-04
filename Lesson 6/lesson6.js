@@ -87,9 +87,15 @@ circleEl.classList.add(dataAnim);
 
 const priceElement = document.getElementById('outprice');
 const colorElements = document.querySelectorAll('.color');
-colorElements.forEach(colorElement => {
-colorElement.addEventListener('click', () => {
-const price = colorElement.getAttribute('data-price');
-priceElement.innerText = price;
-});
+const shoeElements = document.querySelectorAll('.shoe');
+colorElements.forEach((colorElement, index) => {
+  colorElement.addEventListener('click', () => {
+    const price = colorElement.getAttribute('data-price');
+    const image = shoeElements[index].getAttribute(`src`);
+    priceElement.innerText = price;
+    shoeElements.forEach(shoeElement => {
+      shoeElement.classList.remove('show');
+    });
+    shoeElements[index].classList.add('show');
+  });
 });
