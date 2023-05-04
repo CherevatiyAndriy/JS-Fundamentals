@@ -14,6 +14,7 @@ const header = document.querySelector('h1');
 const div = document.getElementById('myDiv');
 const paragraphs = div.getElementsByTagName('p');
 const listItems = document.querySelectorAll('#myList li');
+let text = '';
 const spanElement = document.querySelector('span');
 header.style.fontSize = '40px';
 header.style.lineHeight = '1.5';
@@ -31,11 +32,15 @@ paragraphs[1].style.lineHeight = '1.5';
 paragraphs[2].style.lineHeight = '1.5';
 paragraphs[3].style.lineHeight = '1.5';
 listItems.forEach(item => {
+text += item.textContent;
 item.style.display = 'inline';
 item.style.whiteSpace = 'nowrap';
 item.style.marginRight = '10px';
 item.style.lineHeight = '1.5';
 });
+text = text.replace(/\s/g, '');
+const ul = document.querySelector('#myList');
+ul.textContent = text;
 
 // Завдання 3
 const mainElement = document.createElement('main');
