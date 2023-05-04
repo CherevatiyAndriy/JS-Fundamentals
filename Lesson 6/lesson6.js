@@ -55,3 +55,6 @@ data[input.getAttribute('data-form')] = input.value;
 });
 outBlock.innerHTML = JSON.stringify(data);
 });
+
+// Завдання 5
+
