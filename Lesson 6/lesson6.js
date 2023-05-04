@@ -35,7 +35,6 @@ listItems.forEach(item => {
 text += item.textContent;
 item.style.display = 'inline';
 item.style.whiteSpace = 'nowrap';
-item.style.padingleft = '50px';
 item.style.lineHeight = '1.5';
 });
 text = text.replace(/\s/g, '');
