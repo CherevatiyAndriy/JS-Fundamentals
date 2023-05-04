@@ -41,3 +41,17 @@ divElement.appendChild(pElement);
 mainElement.appendChild(divElement);
 const bodyElement = document.getElementsByTagName('body')[0];
 bodyElement.appendChild(mainElement);
+
+
+// Завдання 4
+const form = document.querySelector('.array fieldset');
+const outBlock = document.querySelector('.out');
+const submitBtn = document.querySelector('.btn');
+submitBtn.addEventListener('click', () => {
+  const data = {};
+  const inputs = form.querySelectorAll('input.arr');
+  inputs.forEach(input => {
+    data[input.getAttribute('data-form')] = input.value;
+  });
+  outBlock.innerHTML = JSON.stringify(data);
+});
