@@ -93,14 +93,3 @@ const price = colorElement.getAttribute('data-price');
 priceElement.innerText = price;
 });
 });
-const priceElement = document.getElementById('outprice');
-const colorElements = document.querySelectorAll('.color');
-const shoeElement = document.querySelector('.shoe.show');
-colorElements.forEach(colorElement => {
-    colorElement.addEventListener('click', () => {
-        const price = colorElement.getAttribute('data-price');
-        const image = colorElement.getAttribute('data-image');
-        priceElement.innerText = price;
-        shoeElement.src = image;
-    });
-});
