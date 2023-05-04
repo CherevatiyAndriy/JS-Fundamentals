@@ -73,3 +73,11 @@ circleEl.classList.add(dataAnim);
 
 // Завдання 6
 
+const priceElement = document.getElementById('outprice');
+const colorElements = document.querySelectorAll('.color');
+colorElements.forEach(colorElement => {
+colorElement.addEventListener('click', () => {
+const price = colorElement.getAttribute('data-price');
+priceElement.innerText = price;
+});
+});
