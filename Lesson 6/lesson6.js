@@ -24,11 +24,16 @@ paragraphs[0].style.fontWeight = 'bold';
 paragraphs[1].style.color = 'red';
 paragraphs[2].style.textDecoration = 'underline';
 paragraphs[3].style.fontStyle = 'italic';
+header.style.lineHeight = '1.5';
+paragraphs[0].style.lineHeight = '1.5';
+paragraphs[1].style.lineHeight = '1.5';
+paragraphs[2].style.lineHeight = '1.5';
+paragraphs[3].style.lineHeight = '1.5';
 listItems.forEach(item => {
 item.style.display = 'inline-block';
 item.style.marginRight = '10px';
 item.style.whiteSpace = 'nowrap';
-header.style.lineHeight = '1.5';
+item.style.lineHeight = '1.5';
 });
 
 // Завдання 3
