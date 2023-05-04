@@ -93,3 +93,34 @@ const price = colorElement.getAttribute('data-price');
 priceElement.innerText = price;
 });
 });
+const sizeElements = document.querySelectorAll('.size');
+const materialElements = document.querySelectorAll('.material');
+let currentPrice = parseFloat(priceElement.innerText);
+sizeElements.forEach(sizeElement => {
+    sizeElement.addEventListener('click', () => {
+        sizeElements.forEach(sizeElement => {
+            sizeElement.classList.remove('active');
+        });
+        sizeElement.classList.add('active');
+        updatePrice();
+    });
+});
+materialElements.forEach(materialElement => {
+    materialElement.addEventListener('click', () => {
+        materialElements.forEach(materialElement => {
+            materialElement.classList.remove('active');
+        });
+        materialElement.classList.add('active');
+        currentPrice = parseFloat(materialElement.getAttribute('data-price'));
+        updatePrice();
+    });
+});
+function updatePrice() {
+    const selectedSize = document.querySelector('.size.active');
+    if (selectedSize) {
+        const sizePrice = parseFloat(selectedSize.getAttribute('data-price'));
+        const materialPrice = parseFloat(document.querySelector('.material.active').getAttribute('data-price'));
+        const newPrice = currentPrice + sizePrice + materialPrice;
+        priceElement.innerText = newPrice.toFixed(2);
+    }
+}
