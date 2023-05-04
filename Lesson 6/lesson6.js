@@ -85,42 +85,41 @@ circleEl.classList.add(dataAnim);
 
 // Завдання 6
 
-const priceElement = document.getElementById('outprice');
-const colorElements = document.querySelectorAll('.color');
-colorElements.forEach(colorElement => {
-colorElement.addEventListener('click', () => {
-const price = colorElement.getAttribute('data-price');
-priceElement.innerText = price;
-});
-});
-const sizeElements = document.querySelectorAll('.size');
-const materialElements = document.querySelectorAll('.material');
-let currentPrice = parseFloat(priceElement.innerText);
+function selectOption(optionElements, selectedOption) {
+  optionElements.forEach(optionElement => {
+    optionElement.classList.remove('active');
+    if (optionElement.getAttribute('data-value') === selectedOption) {
+      optionElement.classList.add('active');
+    }
+  });
+}
 sizeElements.forEach(sizeElement => {
-    sizeElement.addEventListener('click', () => {
-        sizeElements.forEach(sizeElement => {
-            sizeElement.classList.remove('active');
-        });
-        sizeElement.classList.add('active');
-        updatePrice();
+  sizeElement.addEventListener('click', () => {
+    sizeElements.forEach(sizeElement => {
+      sizeElement.classList.remove('active');
     });
+    sizeElement.classList.add('active');
+    updatePrice();
+    const selectedSize = sizeElement.getAttribute('data-value');
+    selectOption(sizeOptionElements, selectedSize);
+  });
 });
 materialElements.forEach(materialElement => {
-    materialElement.addEventListener('click', () => {
-        materialElements.forEach(materialElement => {
-            materialElement.classList.remove('active');
-        });
-        materialElement.classList.add('active');
-        currentPrice = parseFloat(materialElement.getAttribute('data-price'));
-        updatePrice();
+  materialElement.addEventListener('click', () => {
+    materialElements.forEach(materialElement => {
+      materialElement.classList.remove('active');
     });
+    materialElement.classList.add('active');
+    currentPrice = parseFloat(materialElement.getAttribute('data-price'));
+    updatePrice();
+    const selectedMaterial = materialElement.getAttribute('data-value');
+    selectOption(materialOptionElements, selectedMaterial);
+  });
 });
-function updatePrice() {
-    const selectedSize = document.querySelector('.size.active');
-    if (selectedSize) {
-        const sizePrice = parseFloat(selectedSize.getAttribute('data-price'));
-        const materialPrice = parseFloat(document.querySelector('.material.active').getAttribute('data-price'));
-        const newPrice = currentPrice + sizePrice + materialPrice;
-        priceElement.innerText = newPrice.toFixed(2);
-    }
-}
+colorElements.forEach(colorElement => {
+  colorElement.addEventListener('click', () => {
+    const price = colorElement.getAttribute('data-price');
+    priceElement.innerText = price;
+    selectOption(colorOptionElements, colorElement.getAttribute('data-value'));
+  });
+});
