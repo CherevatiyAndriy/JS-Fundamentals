@@ -40,6 +40,7 @@ item.style.lineHeight = '1.5';
 text = text.replace(/\s/g, '');
 const ul = document.querySelector('#myList');
 ul.textContent = text;
+ul.style.textAlign = 'right';
 
 // Завдання 3
 const mainElement = document.createElement('main');
