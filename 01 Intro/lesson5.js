@@ -47,30 +47,38 @@ function propsCount(currentObject) {
 // Завдання 3
 
 class Person {
-    constructor(name, surname) {
-      this.name = name;
-      this.surname = surname;
-    }
-    showFullName() {
-      console.log(`${this.surname} ${this.name}`);
+  constructor(name, surname) {
+    this.name = name;
+    this.surname = surname;
+  }
+  showFullName() {
+    console.log(`${this.surname} ${this.name}`);
+  }
+}
+class Student extends Person {
+  constructor(name, surname, year) {
+    super(name, surname);
+    this.year = year;
+  }
+  showFullName(middleName) {
+    return `${this.surname} ${this.name} ${middleName}`;
+  }
+  showCourse() {
+    let currentYear = new Date().getFullYear();
+    let course = currentYear - this.year + 1;
+    if (course < 1) {
+      return 1;
+    } else if (course > 6) {
+      return 6;
+    } else {
+      return course;
     }
   }
-  class Student extends Person {
-    constructor(name, surname, year) {
-      super(name, surname);
-      this.year = year;
-    }
-    showFullName(middleName) {
-      return `${this.surname} ${this.name} ${middleName}`;
-    }
-    showCourse() {
-      let currentYear = new Date().getFullYear();
-      return currentYear - this.year + 1;
-    }
-  }
-  const stud1 = new Student("Andrii", "Cherevatyi", 2020);
-  console.log(stud1.showFullName("Pavlovych"));
-  console.log("Current course: " + stud1.showCourse());
+}
+const stud1 = new Student("Andrii", "Cherevatyi", 2020);
+console.log(stud1.showFullName("Pavlovych"));
+console.log("Current course: " + stud1.showCourse());
+
 
 // Завдання 4
 // А
