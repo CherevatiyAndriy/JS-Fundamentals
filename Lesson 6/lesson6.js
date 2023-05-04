@@ -41,6 +41,7 @@ text = text.replace(/\s/g, '');
 const ul = document.querySelector('#myList');
 ul.textContent = text;
 ul.style.textIndent = '40px';
+spans[1].style.display = 'none';
 
 // Завдання 3
 const mainElement = document.createElement('main');
