@@ -70,3 +70,6 @@ const circleEl = document.querySelector('.circle');
 const classList = circleEl.classList;
 const dataAnim = circleEl.getAttribute('data-anim');
 circleEl.classList.add(dataAnim);
+
+// Завдання 6
+
