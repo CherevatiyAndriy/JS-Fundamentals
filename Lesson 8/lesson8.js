@@ -46,14 +46,11 @@ function validateCardNumber(cardNumber) {
   // Завдання 6
   function checkLogin(login) {
     const regex = /^[a-zA-Z][a-zA-Z0-9]{1,9}$/;
-    if (!regex.test(login)) {
-    return false;
-    }
+    if (regex.test(login)) {
     const numbers = login.match(/\d+(\.\d+)?/g);
-    if (numbers) {
-    return `${numbers.join(', ')}\ntrue`;
+    return [true, numbers];
     } else {
-    return 'false';
+    return false;
     }
   }
   console.log(checkLogin('ee1.1ret3'));
