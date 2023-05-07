@@ -31,12 +31,12 @@ function validateCardNumber(cardNumber) {
   console.log(validateCardNumber(cardNumber));
 
   // Завдання 5
-  function checkEmail(email) {
+  function validateEmail(email) {
     const regex = /^[a-zA-Z0-9]+([_\-.]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([_\-.]?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/;
     if (regex.test(email)) {
-    return "Email is correct!";
+      return "Email is correct!";
     } else {
-    return "Email is not correct!";
+      return "Email is not correct!";
     }
   }
 
