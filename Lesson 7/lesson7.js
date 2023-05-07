@@ -15,7 +15,6 @@ setTimeout(() => {
 
 
 // Завдання 6
-
 function resize() {
   var width = window.innerWidth;
   var height = window.innerHeight;
@@ -26,7 +25,6 @@ function resize() {
   resize();
 
 // Завдання 7
-
 const citiesByCountry = {
     USA: ['New-York', 'Washington', 'Boston', 'Chikago'],
     Ukraine: ['Kyiv', 'Ivano-Frankivs\'k', 'Lviv', 'Odesa'],
@@ -50,5 +48,5 @@ resultParagraph.textContent = `${selectedCountry} - ${selectedCity}`;
 citiesSelect.addEventListener('change', () => {
 const selectedCity = citiesSelect.value;
 const selectedCountry = countrySelect.value;
-resultParagraph.textContent = `${selectedCountry} - ${selectedCity}`;
+document.getElementById('result').textContent = `${selectedCountry} - ${selectedCity}`;
   });
