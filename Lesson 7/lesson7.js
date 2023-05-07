@@ -42,6 +42,13 @@ link.addEventListener('mouseleave', () => {
   document.body.style.backgroundColor = 'white';
 });
 
+// Завдання 4
+function deleteSelected() {
+    var selectElement = document.getElementById("mySelect");
+    selectElement.remove(selectElement.selectedIndex);
+}
+
+
 // Завдання 6
 function resize() {
 var width = window.innerWidth;
