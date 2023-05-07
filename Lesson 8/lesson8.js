@@ -45,16 +45,15 @@ function validateCardNumber(cardNumber) {
 
   // Завдання 6
   function checkLogin(login) {
-    const loginRegex = /^[a-zA-Z][a-zA-Z0-9]{1,9}$/; 
-    const numbersRegex = /\d+(\.\d+)?/g;
-    if (!loginRegex.test(login)) {
+    const regex = /^[a-zA-Z][a-zA-Z0-9]{1,9}$/;
+    if (!regex.test(login)) {
     return false;
     }
-    const numbers = login.match(numbersRegex);
+    const numbers = login.match(/\d+(\.\d+)?/g);
     if (numbers) {
-    return `${numbers.join(', ')}\n${true}`;
+    return `${numbers.join(', ')}\ntrue`;
     } else {
-    return false;
+    return 'false';
     }
   }
   console.log(checkLogin('ee1.1ret3'));
