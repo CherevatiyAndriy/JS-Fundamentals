@@ -16,9 +16,9 @@ setTimeout(() => {
 // Завдання 7
 
 const citiesByCountry = {
-  usa: ['New-York', 'Washington', 'Boston', 'Chikago'],
-  ukr: ['Kyiv', 'Ivano-Frankivs\'k', 'Lviv', 'Odesa'],
-  ger: ['Berlin', 'Dresden', 'Hannover', 'Bonn'],
+  USA: ['New-York', 'Washington', 'Boston', 'Chikago'],
+  Ukraine: ['Kyiv', 'Ivano-Frankivs\'k', 'Lviv', 'Odesa'],
+  Germany: ['Berlin', 'Dresden', 'Hannover', 'Bonn'],
   };
   const countrySelect = document.getElementById('country');
   const citiesSelect = document.getElementById('cities');
@@ -33,10 +33,10 @@ const citiesByCountry = {
   citiesSelect.appendChild(option);
   });
   const selectedCity = citiesSelect.value;
-  resultParagraph.textContent = `Обрано: ${selectedCountry} - ${selectedCity}`;
+  resultParagraph.textContent = `${selectedCountry} - ${selectedCity}`;
   });
   citiesSelect.addEventListener('change', () => {
   const selectedCity = citiesSelect.value;
   const selectedCountry = countrySelect.value;
-  resultParagraph.textContent = `Обрано: ${selectedCountry} - ${selectedCity}`;
+  resultParagraph.textContent = `${selectedCountry} - ${selectedCity}`;
   });
