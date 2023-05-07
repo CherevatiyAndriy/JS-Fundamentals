@@ -18,7 +18,7 @@ function resize() {
 var width = window.innerWidth;
 var height = window.innerHeight;
 document.getElementById("page-width").textContent = width;
-document.getElementById("result-height").textContent = height; // змінено id
+document.getElementById("result-height").textContent = height;
 }
 window.addEventListener("resize", resize);
 resize();
