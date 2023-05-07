@@ -48,6 +48,8 @@ function deleteSelected() {
     selectElement.remove(selectElement.selectedIndex);
 }
 
+// Завдання 5
+
 
 // Завдання 6
 function resize() {
