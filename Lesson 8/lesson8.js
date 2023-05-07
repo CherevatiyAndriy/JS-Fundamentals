@@ -44,3 +44,18 @@ function validateCardNumber(cardNumber) {
   console.log(validateEmail('my_ma--il@gmail.com'));
 
   // Завдання 6
+  function checkLogin(login) {
+    const loginRegex = /^[a-zA-Z][a-zA-Z0-9]{1,9}$/; 
+    const numbersRegex = /\d+(\.\d+)?/g;
+    if (!loginRegex.test(login)) {
+    return false;
+    }
+    const numbers = login.match(numbersRegex);
+    if (numbers) {
+    return `${numbers.join(', ')}\n${true}`;
+    } else {
+    return false;
+    }
+  }
+  console.log(checkLogin('ee1.1ret3'));
+  console.log(checkLogin('ee1*1ret3'));
