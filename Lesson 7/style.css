@@ -1,5 +1,11 @@
-.task {
+.task-6 {
+    display: flex;
+    flex-direction: column;
     float: left;
-    margin-right: 20px;
   }
   
+  .task-7 {
+    display: flex;
+    flex-direction: column;
+    float: left;
+  }
