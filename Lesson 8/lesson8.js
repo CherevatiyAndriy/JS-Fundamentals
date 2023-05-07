@@ -15,3 +15,12 @@ function checkEmail(email) {
     return re.test(email);
   }
 console.log(checkEmail("Qmail2@gmail.com"));
+
+// Завдання 3
+const str = "Java Script";
+const regex = /^(\w+)\s+(\w+)$/;
+const replaced = str.replace(regex, "$2, $1");
+console.log(replaced);
+
+// Завдання 4
+
