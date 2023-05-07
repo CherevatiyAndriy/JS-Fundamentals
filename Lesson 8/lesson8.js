@@ -39,5 +39,6 @@ function validateCardNumber(cardNumber) {
       return "Email is not correct!";
     }
   }
+  console.log(checkEmail('#my_mail@gmail.com'));
 
   // Завдання 6
