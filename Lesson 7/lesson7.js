@@ -16,13 +16,13 @@ setTimeout(() => {
 
 // Завдання 6
 function resize() {
-  var width = window.innerWidth;
-  var height = window.innerHeight;
-  document.getElementById("width").textContent = width;
-  document.getElementById("height").textContent = height;
+var width = window.innerWidth;
+var height = window.innerHeight;
+document.getElementById("page-width").textContent = width;
+document.getElementById("height").textContent = height;
   }
-  window.addEventListener("resize", resize);
-  resize();
+window.addEventListener("resize", resize);
+resize();
 
 // Завдання 7
 const citiesByCountry = {
