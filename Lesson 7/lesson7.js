@@ -18,10 +18,11 @@ function resize() {
 var width = window.innerWidth;
 var height = window.innerHeight;
 document.getElementById("page-width").textContent = width;
-document.getElementById("height").textContent = height;
-  }
+document.getElementById("result-height").textContent = height; // змінено id
+}
 window.addEventListener("resize", resize);
 resize();
+
 
 // Завдання 7
 const citiesByCountry = {
