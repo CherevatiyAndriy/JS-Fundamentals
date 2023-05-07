@@ -18,6 +18,9 @@ text.style.fontSize = "20px";
 text.style.fontFamily = "Comic Sans MS";
 }
 
+// Завдання 3
+
+
 // Завдання 6
 function resize() {
 var width = window.innerWidth;
