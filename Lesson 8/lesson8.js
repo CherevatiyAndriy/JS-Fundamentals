@@ -23,4 +23,12 @@ const replaced = str.replace(regex, "$2, $1");
 console.log(replaced);
 
 // Завдання 4
+function validateCardNumber(cardNumber) {
+    const regex = /^(\d{4}-){3}\d{4}$/;
+    return regex.test(cardNumber);
+  }
+  const cardNumber = "9999-9999-9999-9999";
+  console.log(validateCardNumber(cardNumber));
 
+  // Завдання 5
+  
