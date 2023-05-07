@@ -16,12 +16,14 @@ setTimeout(() => {
 
 // Завдання 6
 
-window.addEventListener("resize", function() {
+document.addEventListener("DOMContentLoaded", function() {
+  window.addEventListener("resize", function() {
   var width = window.innerWidth;
   var height = window.innerHeight;
   document.getElementById("width").textContent = width;
   document.getElementById("height").textContent = height;
   });
+});
 
 // Завдання 7
 
