@@ -32,7 +32,7 @@ const citiesByCountry = {
   };
 const countrySelect = document.getElementById('country');
 const citiesSelect = document.getElementById('cities');
-const resultParagraph = document.querySelector('p');
+const resultParagraph = document.querySelector('#result-city');
 countrySelect.addEventListener('change', () => {
 const selectedCountry = countrySelect.value;
 citiesSelect.innerHTML = '';
