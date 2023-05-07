@@ -49,7 +49,17 @@ function deleteSelected() {
 }
 
 // Завдання 5
-
+var myBtn = document.getElementById("myBtn");
+var myDiv = document.getElementById("myDiv");
+myBtn.addEventListener("click", function() {
+  myDiv.innerHTML = "I was pressed!";
+});
+myBtn.addEventListener("mouseenter", function() {
+  myDiv.innerHTML = "Mouse on me!";
+});
+myBtn.addEventListener("mouseleave", function() {
+  myDiv.innerHTML = "Mouse is not on me!";
+});
 
 // Завдання 6
 function resize() {
