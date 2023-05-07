@@ -1,5 +1,4 @@
 // Завдання 1
-
 const myWindow = window.open('', '', 'width=300,height=300');
 setTimeout(() => {
   myWindow.resizeTo(500, 500);
