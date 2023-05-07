@@ -1,6 +1,6 @@
 // Завдання 1
 function upperCase(str) {
-    if (str[0] === str[0].toUpperCase()) {
+    if (/^[A-Z]/.test(str)) {
       return "String's starts with uppercase character";
     } else {
       return "String's not starts with uppercase character";
