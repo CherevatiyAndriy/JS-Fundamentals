@@ -11,7 +11,12 @@ setTimeout(() => {
 }, 6000);
 
 // Завдання 2
-
+function changeCSS() {
+const text = document.getElementById("text");
+text.style.color = "orange";
+text.style.fontSize = "20px";
+text.style.fontFamily = "Comic Sans MS";
+}
 
 // Завдання 6
 function resize() {
