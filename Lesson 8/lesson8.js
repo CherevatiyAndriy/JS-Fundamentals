@@ -32,13 +32,15 @@ function validateCardNumber(cardNumber) {
 
   // Завдання 5
   function validateEmail(email) {
-    const regex = /^[a-zA-Z0-9]+([_\-.]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([_\-.]?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/;
+    const regex = /^[a-zA-Z0-9]+([_\-\.][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([_\-\.][a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/;
     if (regex.test(email)) {
-      return "Email is correct!";
+    return "Email is correct!";
     } else {
-      return "Email is not correct!";
+    return "Email is not correct!";
     }
   }
-  console.log(checkEmail('#my_mail@gmail.com'));
+  console.log(validateEmail('my_mail@gmail.com'));
+  console.log(validateEmail('#my_mail@gmail.com')); 
+  console.log(validateEmail('my_ma--il@gmail.com'));
 
   // Завдання 6
