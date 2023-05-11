@@ -49,27 +49,26 @@ function deleteSelected() {
 }
 
 // Завдання 5
-var myBtn = document.getElementById("myBtn");
-var myDiv = document.getElementById("myDiv");
+const myBtn = document.getElementById("myBtn");
+const myDiv = document.getElementById("myDiv");
+
 myBtn.addEventListener("click", function() {
-  myDiv.innerHTML = "I was pressed!";
-});
-myBtn.addEventListener("mouseenter", function() {
-  myDiv.innerHTML = "Mouse on me!";
-});
-myBtn.addEventListener("mouseleave", function() {
-  myDiv.innerHTML = "Mouse is not on me!";
+  if (myDiv.innerHTML !== "I was pressed!") {
+    myDiv.innerHTML = "I was pressed!";
+  }
 });
 
-// Завдання 6
-function resize() {
-var width = window.innerWidth;
-var height = window.innerHeight;
-document.getElementById("page-width").textContent = width;
-document.getElementById("result-height").textContent = height;
-}
-window.addEventListener("resize", resize);
-resize();
+myBtn.addEventListener("mouseenter", function() {
+  if (myDiv.innerHTML !== "I was pressed!") {
+    myDiv.innerHTML = "Mouse on me!";
+  }
+});
+
+myBtn.addEventListener("mouseleave", function() {
+  if (myDiv.innerHTML !== "I was pressed!") {
+    myDiv.innerHTML = "Mouse is not on me!";
+  }
+});
 
 
 // Завдання 7
