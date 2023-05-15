@@ -15,6 +15,12 @@
     </style>
 
     <script>
+    $(document).ready(function() {
+    $('a[href^="https://"]').attr('target', '_blank');
+    });
+    </script>
+
+    <script>
         $(document).ready(function() {
         $('h3 + div').each(function() {
         $(this).insertBefore($(this).prev('h3'));
@@ -48,6 +54,12 @@
         $('h2.head').find('.inner').css('font-size', '35px');
     });
     </script>
+
+<!--Завдання 2 -->   
+    <a href="https://www.example.com">Link 1</a>
+    <a href="http://www.example.com">Link 2</a>
+    <a href="https://www.example.org">Link 3</a>
+
     
 <!--Завдання 3 -->
     <h3>header1</h3>
