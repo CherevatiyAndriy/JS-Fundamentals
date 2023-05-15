@@ -13,6 +13,13 @@
         font-size: 35px;
     }
     </style>
+    <script>
+        $(document).ready(function() {
+        $('h3 + div').each(function() {
+        $(this).insertBefore($(this).prev('h3'));
+        });
+        });
+    </script>
 </head>
 <body>
 <!--Завдання 1-->
@@ -28,5 +35,12 @@
     });
     </script>
     
+<!--Завдання 3 -->
+    <h3>header1</h3>
+    <div>text1</div>
+    <h3>header2</h3>
+    <div>text2</div>
+
+
 </body>
 </html>
