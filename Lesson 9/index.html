@@ -13,10 +13,24 @@
         font-size: 35px;
     }
     </style>
+
     <script>
         $(document).ready(function() {
         $('h3 + div').each(function() {
         $(this).insertBefore($(this).prev('h3'));
+        });
+        });
+    </script>
+
+      <script>
+        $(document).ready(function() {
+        $('input[type="checkbox"]').on('change', function() {
+        const checkedCount = $('input[type="checkbox"]:checked').length;
+        if (checkedCount >= 3) {
+        $('input[type="checkbox"]:not(:checked)').prop('disabled', true);
+        } else {
+        $('input[type="checkbox"]').prop('disabled', false);
+        }
         });
         });
     </script>
@@ -41,6 +55,13 @@
     <h3>header2</h3>
     <div>text2</div>
 
+<!--Завдання 4 -->
+    <input type="checkbox"> Checkbox 1<br>
+    <input type="checkbox"> Checkbox 2<br>
+    <input type="checkbox"> Checkbox 3<br>
+    <input type="checkbox"> Checkbox 4<br>
+    <input type="checkbox"> Checkbox 5<br>
+    <input type="checkbox"> Checkbox 6<br>
 
 </body>
 </html>
