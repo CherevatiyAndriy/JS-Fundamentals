@@ -48,3 +48,7 @@ body {
     object-fit: cover;
     margin: 10px;
   }
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 

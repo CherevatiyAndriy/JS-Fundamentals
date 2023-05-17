@@ -1,6 +1,7 @@
 const addForm = document.getElementById('addForm');
 const list = document.getElementById('list');
 const gallery = document.getElementById('gallery');
+
 class Shoe {
   constructor(name, brand, price, image) {
     this.name = name;
@@ -9,19 +10,24 @@ class Shoe {
     this.image = image;
   }
 }
+
 class Store {
   constructor() {
     this.shoes = [];
   }
+
   addShoe(shoe) {
     this.shoes.push(shoe);
   }
+
   removeShoe(index) {
     this.shoes.splice(index, 1);
   }
+
   displayShoes() {
     list.innerHTML = '';
     gallery.innerHTML = '';
+
     this.shoes.forEach((shoe, index) => {
       const listItem = document.createElement('li');
       listItem.innerHTML = `<span>${shoe.name}</span> - ${shoe.brand}, Ціна: ${shoe.price} грн`;
@@ -34,14 +40,39 @@ class Store {
       });
       listItem.appendChild(deleteBtn);
       list.appendChild(listItem);
+
+      const shoeDiv = document.createElement('div');
+      shoeDiv.className = 'shoeItem';
       const shoeImage = document.createElement('img');
       shoeImage.src = shoe.image;
       shoeImage.alt = shoe.name;
-      gallery.appendChild(shoeImage);
+      shoeDiv.appendChild(shoeImage);
+
+      const buttonDiv = document.createElement('div');
+      buttonDiv.className = 'buttonContainer';
+
+      const selectBtn = document.createElement('button');
+      selectBtn.className = 'selectBtn';
+      selectBtn.innerText = 'Вибрати';
+      buttonDiv.appendChild(selectBtn);
+
+      const deleteBtnImage = document.createElement('button');
+      deleteBtnImage.className = 'deleteBtn';
+      deleteBtnImage.innerText = 'Видалити';
+      deleteBtnImage.addEventListener('click', () => {
+        this.removeShoe(index);
+        this.displayShoes();
+      });
+      buttonDiv.appendChild(deleteBtnImage);
+
+      shoeDiv.appendChild(buttonDiv);
+      gallery.appendChild(shoeDiv);
     });
   }
 }
+
 const store = new Store();
+
 addForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const name = document.getElementById('name').value;
