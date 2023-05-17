@@ -1,54 +1,67 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
-  h1 {
-    text-align: center;
-  }
-  form {
-    margin-bottom: 20px;
-  }
-  input, button {
-    margin-bottom: 10px;
-  }
-  #shoesList {
-    margin-top: 20px;
-  }
-  #list {
-    list-style-type: none;
-    padding: 0;
-  }
-  li {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  li span {
-    font-weight: bold;
-  }
-  button.deleteBtn {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  #shoesGallery {
-    margin-top: 20px;
-    text-align: center;
-  }
-  #gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  #gallery img {
-    width: 350px;
-    height: 350px;
-    object-fit: cover;
-    margin: 10px;
-  }
-  .buttonContainer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input, button {
+  margin-bottom: 10px;
+}
+
+#shoesList {
+  margin-top: 20px;
+}
+
+#list {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+li span {
+  font-weight: bold;
+}
+
+button.deleteBtn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#shoesGallery {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#gallery img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  margin: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
