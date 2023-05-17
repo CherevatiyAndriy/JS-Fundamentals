@@ -40,12 +40,10 @@ body {
   #gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 10px;
   }
   #gallery img {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
-    margin: 5px;
+    margin: 10px;
   }
