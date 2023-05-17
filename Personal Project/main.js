@@ -31,18 +31,18 @@ class Store {
     this.shoes.forEach((shoe, index) => {
       const listItem = document.createElement('li');
       listItem.innerHTML = `<span>${shoe.name}</span> - ${shoe.brand}, Ціна: ${shoe.price} грн`;
+      
       const buttonContainer = document.createElement('div');
       buttonContainer.classList.add('buttonContainer');
+      
       const selectBtn = document.createElement('button');
       selectBtn.innerText = 'Вибрати';
-      const deleteBtn = document.createElement('button');
-      deleteBtn.innerText = 'Видалити';
-
       selectBtn.addEventListener('click', () => {
-        // Дії при натисканні кнопки "Вибрати"
         console.log(`Вибрано кросівку: ${shoe.name}`);
       });
-
+      
+      const deleteBtn = document.createElement('button');
+      deleteBtn.innerText = 'Видалити';
       deleteBtn.addEventListener('click', () => {
         this.removeShoe(index);
         this.displayShoes();
@@ -50,6 +50,7 @@ class Store {
 
       buttonContainer.appendChild(selectBtn);
       buttonContainer.appendChild(deleteBtn);
+      
       listItem.appendChild(buttonContainer);
       list.appendChild(listItem);
 
