@@ -1,7 +1,6 @@
 const addForm = document.getElementById('addForm');
 const list = document.getElementById('list');
 const gallery = document.getElementById('gallery');
-
 class Shoe {
   constructor(name, brand, price, image) {
     this.name = name;
@@ -10,43 +9,31 @@ class Shoe {
     this.image = image;
   }
 }
-
 class Store {
   constructor() {
     this.shoes = [];
   }
-
   addShoe(shoe) {
     this.shoes.push(shoe);
   }
-
   removeShoe(index) {
     this.shoes.splice(index, 1);
   }
-
   displayShoes() {
     list.innerHTML = '';
     gallery.innerHTML = '';
-
     this.shoes.forEach((shoe, index) => {
       const listItem = document.createElement('li');
       listItem.innerHTML = `<span>${shoe.name}</span> - ${shoe.brand}, Ціна: ${shoe.price} грн`;
-
-      const buttonContainer = document.createElement('div');
-      buttonContainer.className = 'buttonContainer';
-
-      const selectButton = document.createElement('button');
-      selectButton.innerText = 'Вибрати';
-
-      const deleteButton = document.createElement('button');
-      deleteButton.innerText = 'Видалити';
-
-      buttonContainer.appendChild(selectButton);
-      buttonContainer.appendChild(deleteButton);
-
-      listItem.appendChild(buttonContainer);
+      const deleteBtn = document.createElement('button');
+      deleteBtn.className = 'deleteBtn';
+      deleteBtn.innerText = 'Видалити';
+      deleteBtn.addEventListener('click', () => {
+        this.removeShoe(index);
+        this.displayShoes();
+      });
+      listItem.appendChild(deleteBtn);
       list.appendChild(listItem);
-
       const shoeImage = document.createElement('img');
       shoeImage.src = shoe.image;
       shoeImage.alt = shoe.name;
@@ -54,9 +41,7 @@ class Store {
     });
   }
 }
-
 const store = new Store();
-
 addForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const name = document.getElementById('name').value;
