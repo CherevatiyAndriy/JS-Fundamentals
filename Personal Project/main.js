@@ -84,5 +84,3 @@ addForm.addEventListener('submit', (e) => {
   store.displayShoes();
   addForm.reset();
 });
-
-store.displayShoes();
