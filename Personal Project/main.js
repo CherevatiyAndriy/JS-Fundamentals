@@ -31,42 +31,32 @@ class Store {
     this.shoes.forEach((shoe, index) => {
       const listItem = document.createElement('li');
       listItem.innerHTML = `<span>${shoe.name}</span> - ${shoe.brand}, Ціна: ${shoe.price} грн`;
+      const buttonContainer = document.createElement('div');
+      buttonContainer.classList.add('buttonContainer');
+      const selectBtn = document.createElement('button');
+      selectBtn.innerText = 'Вибрати';
       const deleteBtn = document.createElement('button');
-      deleteBtn.className = 'deleteBtn';
       deleteBtn.innerText = 'Видалити';
+
+      selectBtn.addEventListener('click', () => {
+        // Дії при натисканні кнопки "Вибрати"
+        console.log(`Вибрано кросівку: ${shoe.name}`);
+      });
+
       deleteBtn.addEventListener('click', () => {
         this.removeShoe(index);
         this.displayShoes();
       });
-      listItem.appendChild(deleteBtn);
+
+      buttonContainer.appendChild(selectBtn);
+      buttonContainer.appendChild(deleteBtn);
+      listItem.appendChild(buttonContainer);
       list.appendChild(listItem);
 
-      const shoeDiv = document.createElement('div');
-      shoeDiv.className = 'shoeItem';
       const shoeImage = document.createElement('img');
       shoeImage.src = shoe.image;
       shoeImage.alt = shoe.name;
-      shoeDiv.appendChild(shoeImage);
-
-      const buttonDiv = document.createElement('div');
-      buttonDiv.className = 'buttonContainer';
-
-      const selectBtn = document.createElement('button');
-      selectBtn.className = 'selectBtn';
-      selectBtn.innerText = 'Вибрати';
-      buttonDiv.appendChild(selectBtn);
-
-      const deleteBtnImage = document.createElement('button');
-      deleteBtnImage.className = 'deleteBtn';
-      deleteBtnImage.innerText = 'Видалити';
-      deleteBtnImage.addEventListener('click', () => {
-        this.removeShoe(index);
-        this.displayShoes();
-      });
-      buttonDiv.appendChild(deleteBtnImage);
-
-      shoeDiv.appendChild(buttonDiv);
-      gallery.appendChild(shoeDiv);
+      gallery.appendChild(shoeImage);
     });
   }
 }
