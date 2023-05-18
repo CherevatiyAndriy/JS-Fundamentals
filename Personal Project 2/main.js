@@ -86,40 +86,53 @@ window.addEventListener('offline', () => {
 
 // Обробка події надсилання форми
 document.getElementById('registration-form').addEventListener('submit', (event) => {
-  event.preventDefault(); // Зупинка стандартної поведінки форми
-
-  const surname = document.getElementById('surname').value;
-  const firstName = document.getElementById('firstName').value;
-  const age = document.getElementById('age').value;
-  const education = document.getElementById('education').value;
-  const desiredPosition = document.getElementById('desiredPosition').value;
-
-  const user = new User(surname, firstName, age, education, desiredPosition);
-
-  checkNetworkStatus()
-    .then((online) => {
-      if (online) {
-        return sendUserDataToServer(user);
-      } else {
-        saveUserDataLocally(user);
-      }
-    })
-    .then(() => {
-      // Очищення полів форми
-      document.getElementById('surname').value = '';
-      document.getElementById('firstName').value = '';
-      document.getElementById('age').value = '';
-      document.getElementById('education').value = '';
-      document.getElementById('desiredPosition').value = '';
-
-      // Видалення даних з LocalStorage
-      localStorage.removeItem('users');
-    })
-    .catch(() => {
-      console.error('Помилка при обробці даних');
-    });
-});
-
+    event.preventDefault(); // Зупинка стандартної поведінки форми
+  
+    const surname = document.getElementById('surname').value;
+    const firstName = document.getElementById('firstName').value;
+    const age = document.getElementById('age').value;
+    const education = document.getElementById('education').value;
+    const desiredPosition = document.getElementById('desiredPosition').value;
+  
+    // Перевірка, чи обрана професія є у списку доступних
+    const professionSelect = document.getElementById('profession');
+    const selectedProfession = professionSelect.value;
+  
+    const availableProfessions = ['Лікар', 'Вчитель', 'Інженер', 'Актор', 'Програміст', 'Дизайнер'];
+  
+    if (!availableProfessions.includes(selectedProfession)) {
+      const professionError = document.getElementById('profession-error');
+      professionError.style.display = 'block';
+      return; // Припинити виконання функції
+    }
+  
+    // Якщо обрана професія є у списку доступних, продовжити обробку форми
+    const user = new User(surname, firstName, age, education, desiredPosition);
+  
+    checkNetworkStatus()
+      .then((online) => {
+        if (online) {
+          return sendUserDataToServer(user);
+        } else {
+          saveUserDataLocally(user);
+        }
+      })
+      .then(() => {
+        // Очищення полів форми
+        document.getElementById('surname').value = '';
+        document.getElementById('firstName').value = '';
+        document.getElementById('age').value = '';
+        document.getElementById('education').value = '';
+        document.getElementById('desiredPosition').value = '';
+        professionSelect.value = '';
+  
+        // Видалення даних з LocalStorage
+        localStorage.removeItem('users');
+      })
+      .catch(() => {
+        console.error('Помилка при обробці даних');
+      });
+  });
 // Ініціалізація
 loadUserDataFromLocalStorage();
 updateNetworkStatus(navigator.onLine);

@@ -31,8 +31,21 @@
     </div>
     <div>
       <button type="submit">Зареєструватися</button>
-    </div>
-  </form>
+    </div> 
+    <div id="profession-error" style="display: none; color: red;">Обрана професія недоступна. Виберіть іншу професію.</div>
+    <div>
+        <label for="profession">Професія:</label>
+        <select id="profession" name="profession" required>
+          <option value="">Виберіть професію</option>
+          <option value="Лікар">Лікар</option>
+          <option value="Вчитель">Вчитель</option>
+          <option value="Інженер">Інженер</option>
+          <option value="Актор">Актор</option>
+          <option value="Програміст">Програміст</option>
+          <option value="Дизайнер">Дизайнер</option>
+        </select>
+      </div>  
+</form>
 
   <script src="main.js"></script>
 </body>
