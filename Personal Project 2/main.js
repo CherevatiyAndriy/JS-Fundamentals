@@ -129,9 +129,6 @@ class User {
       .then(() => {
         // Рендеринг даних користувача на сторінці
         renderUserData(user);
-        window.addEventListener('beforeunload', () => {
-        localStorage.removeItem('users');
-        });
   
         // Очищення полів форми
         document.getElementById('surname').value = '';
@@ -146,6 +143,11 @@ class User {
       .catch((error) => {
         console.error(error);
       });
+  });
+  
+  // Видалення даних користувачів з LocalStorage при оновленні сторінки
+  window.addEventListener('beforeunload', () => {
+    localStorage.removeItem('users');
   });
   
   // Ініціалізація
