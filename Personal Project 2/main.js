@@ -141,4 +141,3 @@ class User {
   // Ініціалізація
   loadUserDataFromLocalStorage();
   updateNetworkStatus(navigator.onLine);
-  
