@@ -110,9 +110,13 @@ class User {
         document.getElementById('education').value = '';
         document.getElementById('desiredPosition').value = '';
 
-        // Оновлення статусу мережі
-        updateNetworkStatus(navigator.onLine);
-
+     // Оновлення статусу мережі
+function updateNetworkStatus(online) {
+    const statusElement = document.getElementById('network-status');
+    if (statusElement) {
+      statusElement.textContent = online ? 'Онлайн' : 'Офлайн';
+    }
+  }
         // Видалення даних з LocalStorage
         localStorage.removeItem('users');
       })
