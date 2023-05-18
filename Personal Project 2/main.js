@@ -1,96 +1,126 @@
-// Перевірка наявності доступу до мережі
-function checkNetworkStatus() {
-    return navigator.onLine;
+// Клас користувача
+class User {
+    constructor(surname, firstName, age, education, desiredPosition) {
+      this.surname = surname;
+      this.firstName = firstName;
+      this.age = age;
+      this.education = education;
+      this.desiredPosition = desiredPosition;
+    }
   }
-  
-  // Збереження даних користувача в локальному сховищі
-  function saveUserDataLocally(userData) {
-    const savedData = JSON.parse(localStorage.getItem('userData')) || [];
-    savedData.push(userData);
-    localStorage.setItem('userData', JSON.stringify(savedData));
+
+  // Збереження даних користувача в локальному сховищі (LocalStorage)
+  function saveUserDataLocally(user) {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    users.push(user);
+    localStorage.setItem('users', JSON.stringify(users));
   }
-  
-  // Отримання даних користувача з локального сховища
-  function getUserDataFromLocalStorage() {
-    return JSON.parse(localStorage.getItem('userData')) || [];
-  }
-  
-  // Відправлення даних на сервер (емуляція)
-  function sendUserDataToServer(userData) {
-    // Емуляція відправки даних на сервер та отримання відповіді
+
+  // Відправка даних користувача на сервер (симуляція запиту API)
+  function sendUserDataToServer(user) {
     return new Promise((resolve, reject) => {
+      // Симуляція асинхронного запиту на сервер
       setTimeout(() => {
-        const response = { success: true };
-        resolve(response);
+        const success = Math.random() < 0.5; // 50% шанс успіху
+
+        if (success) {
+          console.log('Дані користувача успішно відправлено на сервер');
+          resolve();
+        } else {
+          console.error('Помилка при відправці даних на сервер');
+          reject();
+        }
       }, 1000);
     });
   }
-  
-  // Видалення даних з локального сховища
-  function clearLocalStorage() {
-    localStorage.removeItem('userData');
+
+  // Оновлення статусу мережі
+  function updateNetworkStatus(online) {
+    const statusElement = document.getElementById('network-status');
+    statusElement.textContent = online ? 'Онлайн' : 'Офлайн';
   }
-  
-  // Функція, яка витягує дані з локального сховища та публікує їх на сторінці
-  function publishDataFromLocalStorage() {
-    const userData = getUserDataFromLocalStorage();
-    // Логіка для публікації даних на сторінці
+
+  // Перевірка доступу до мережі
+  function checkNetworkStatus() {
+    return new Promise((resolve) => {
+      // Симуляція перевірки статусу мережі
+      const online = Math.random() < 0.8; // 80% шанс бути онлайн
+      resolve(online);
+    });
   }
-  
-  // Функція обробки події зміни статусу мережі
-  function handleNetworkStatusChange() {
-    if (checkNetworkStatus()) {
-      const userData = getUserDataFromLocalStorage();
-  
-      if (userData.length > 0) {
-        sendUserDataToServer(userData)
-          .then(response => {
-            if (response.success) {
-              clearLocalStorage();
-            }
-          })
-          .catch(error => {
-            console.log('Помилка під час відправки даних на сервер:', error);
-          });
-      }
-    } else {
-      publishDataFromLocalStorage();
-    }
+
+  // Завантаження даних з LocalStorage
+  function loadUserDataFromLocalStorage() {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    users.forEach((user) => {
+      renderUserData(user);
+    });
   }
-  
-  // Реєстрація Event Listener для зміни статусу мережі
-  window.addEventListener('online', handleNetworkStatusChange);
-  window.addEventListener('offline', handleNetworkStatusChange);
-  
-  // Логіка для форми реєстрації користувача
-  const registrationForm = document.getElementById('registration-form');
-  
-  registrationForm.addEventListener('submit', event => {
-    event.preventDefault();
-  
-    const userData = {
-      surname: registrationForm.surname.value,
-      firstName: registrationForm.firstName.value,
-      age: registrationForm.age.value,
-      education: registrationForm.education.value,
-      desiredPosition: registrationForm.desiredPosition.value
-    };
-  
-    if (checkNetworkStatus()) {
-      sendUserDataToServer(userData)
-        .then(response => {
-          if (response.success) {
-            // Додаткова логіка після успішного відправлення на сервер
-          }
-        })
-        .catch(error => {
-          console.log('Помилка під час відправки даних на сервер:', error);
-          saveUserDataLocally(userData);
-        });
-    } else {
-      saveUserDataLocally(userData);
-    }
-  
-    // Очищення полів форми
-    registrationForm.reset();
+
+  // Рендеринг даних користувача на сторінці
+  function renderUserData(user) {
+    const userDataElement = document.createElement('div');
+    userDataElement.innerHTML = `
+      <p><strong>Прізвище:</strong> ${user.surname}</p>
+      <p><strong>Ім'я:</strong> ${user.firstName}</p>
+      <p><strong>Вік:</strong> ${user.age}</p>
+      <p><strong>Освіта:</strong> ${user.education}</p>
+      <p><strong>Бажана посада:</strong> ${user.desiredPosition}</p>
+      <hr>
+    `;
+    document.body.appendChild(userDataElement);
+  }
+
+  // Оновлення статусу мережі при зміні
+  window.addEventListener('online', () => {
+    updateNetworkStatus(true);
+    loadUserDataFromLocalStorage();
   });
+
+  // Оновлення статусу мережі при зміні
+  window.addEventListener('offline', () => {
+    updateNetworkStatus(false);
+  });
+
+  // Обробка події надсилання форми
+  document.getElementById('registration-form').addEventListener('submit', (event) => {
+    event.preventDefault(); // Зупинка стандартної поведінки форми
+
+    const surname = document.getElementById('surname').value;
+    const firstName = document.getElementById('firstName').value;
+    const age = document.getElementById('age').value;
+    const education = document.getElementById('education').value;
+    const desiredPosition = document.getElementById('desiredPosition').value;
+
+    const user = new User(surname, firstName, age, education, desiredPosition);
+
+    checkNetworkStatus()
+      .then((online) => {
+        if (online) {
+          return sendUserDataToServer(user);
+        } else {
+          saveUserDataLocally(user);
+        }
+      })
+      .then(() => {
+        // Очищення полів форми
+        document.getElementById('surname').value = '';
+        document.getElementById('firstName').value = '';
+        document.getElementById('age').value = '';
+        document.getElementById('education').value = '';
+        document.getElementById('desiredPosition').value = '';
+
+        // Оновлення статусу мережі
+        updateNetworkStatus(navigator.onLine);
+
+        // Видалення даних з LocalStorage
+        localStorage.removeItem('users');
+      })
+      .catch(() => {
+        console.error('Помилка при обробці даних');
+      });
+  });
+
+  // Ініціалізація
+  loadUserDataFromLocalStorage();
+  updateNetworkStatus(navigator.onLine);
