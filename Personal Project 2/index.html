@@ -3,22 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
-  <title>Пошук та фільтрація користувачів</title>
+  <title>Форма реєстрації користувача</title>
 </head>
 <body>
-  <h1>Пошук та фільтрація користувачів</h1>
+  <h1>Форма реєстрації користувача</h1>
 
-  <form id="search-form">
+  <form id="registration-form">
     <div>
-      <label for="search-input">Пошук:</label>
-      <input type="text" id="search-input" name="search-input">
+      <label for="surname">Прізвище:</label>
+      <input type="text" id="surname" name="surname" required>
     </div>
     <div>
-      <button type="submit">Знайти</button>
+      <label for="firstName">Ім'я:</label>
+      <input type="text" id="firstName" name="firstName" required>
+    </div>
+    <div>
+      <label for="age">Вік:</label>
+      <input type="number" id="age" name="age" required>
+    </div>
+    <div>
+      <label for="education">Освіта:</label>
+      <input type="text" id="education" name="education" required>
+    </div>
+    <div>
+      <label for="desiredPosition">Бажана посада:</label>
+      <input type="text" id="desiredPosition" name="desiredPosition" required>
+    </div>
+    <div>
+      <button type="submit">Зареєструватися</button>
     </div>
   </form>
-
-  <div id="user-data-container"></div>
 
   <script src="main.js"></script>
 </body>
