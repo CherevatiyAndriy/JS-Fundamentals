@@ -123,21 +123,3 @@ class User {
   // Ініціалізація
   loadUserDataFromLocalStorage();
   updateNetworkStatus(navigator.onLine);
-  const professions = ['Лікар', 'Вчитель', 'Інженер', 'Актор', 'Програміст', 'Дизайнер'];
-  const professionSelect = document.getElementById('profession');
-const selectedProfession = professionSelect.value;
-// Додайте значення професії до об'єкту користувача або використайте його за потреби
-const user = new User(surname, firstName, age, education, desiredPosition, selectedProfession);
-function renderUserData(user) {
-    const userDataElement = document.createElement('div');
-    userDataElement.innerHTML = `
-      <p><strong>Прізвище:</strong> ${user.surname}</p>
-      <p><strong>Ім'я:</strong> ${user.firstName}</p>
-      <p><strong>Вік:</strong> ${user.age}</p>
-      <p><strong>Освіта:</strong> ${user.education}</p>
-      <p><strong>Бажана посада:</strong> ${user.desiredPosition}</p>
-      <p><strong>Професія:</strong> ${user.profession}</p>
-      <hr>
-    `;
-    document.body.appendChild(userDataElement);
-  }
