@@ -93,37 +93,32 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const age = document.getElementById('age').value;
   const education = document.getElementById('education').value;
   const desiredPosition = document.getElementById('desiredPosition').value;
+  const profession = document.getElementById('profession').value;
 
-  // Перевірка, чи обрана професія є у списку доступних
-  const professionSelect = document.getElementById('profession');
-  const selectedProfession = professionSelect.value;
-
-  const availableProfessions = ['Лікар', 'Вчитель', 'Інженер', 'Актор', 'Програміст', 'Дизайнер'];
-  const validProfession = availableProfessions.includes(selectedProfession);
-
-  if (!validProfession) {
-    const professionError = document.getElementById('profession-error');
-    if (professionError) {
-      professionError.style.display = 'block';
-    }
+  // Перевірка, чи бажана посада співпадає з обраною професією
+  if (desiredPosition.toLowerCase() !== profession.toLowerCase()) {
+    document.getElementById('profession-error').style.display = 'block';
     return;
   }
 
+  // Створення об'єкта користувача
   const user = new User(surname, firstName, age, education, desiredPosition);
 
   try {
-    const online = await checkNetworkStatus();
+    const online = await checkNetworkStatus(); // Перевірка статусу мережі
 
     if (online) {
-      await sendUserDataToServer(user);
-      saveUserDataLocally(user);
-      renderUserData(user);
+      await sendUserDataToServer(user); // Відправка даних на сервер
     } else {
-      saveUserDataLocally(user);
-      renderUserData(user);
+      saveUserDataLocally(user); // Збереження даних локально
     }
+
+    renderUserData(user); // Рендеринг даних користувача
+    document.getElementById('profession-error').style.display = 'none'; // Сховати повідомлення про помилку
+    document.getElementById('registration-form').reset(); // Скинути форму
   } catch (error) {
-    console.error('Помилка:', error.message);
+    console.error(error);
+    alert('Під час реєстрації сталася помилка. Будь ласка, спробуйте пізніше.');
   }
 });
 
@@ -133,5 +128,6 @@ window.addEventListener('beforeunload', () => {
 });
 
 // Ініціалізація
-loadUserDataFromLocalStorage();
 updateNetworkStatus(navigator.onLine);
+loadUserDataFromLocalStorage();
+
