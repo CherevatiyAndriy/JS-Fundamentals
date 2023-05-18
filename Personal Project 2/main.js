@@ -151,5 +151,5 @@ class User {
   });
   
   // Ініціалізація
-  loadUserDataFromLocalStorage();
-  updateNetworkStatus(navigator.onLine);
+loadUserDataFromLocalStorage();
+updateNetworkStatus(navigator.onLine);
