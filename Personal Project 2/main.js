@@ -96,24 +96,26 @@ class User {
   
     // Перевірка, чи обрана професія є у списку доступних
     const professionSelect = document.getElementById('profession');
-    const selectedProfession = professionSelect.value;
-  
-    const availableProfessions = ['Лікар', 'Вчитель', 'Інженер', 'Актор', 'Програміст', 'Дизайнер'];
-  
-    if (!availableProfessions.includes(selectedProfession)) {
-      // Перевірка, чи користувач ввів свою професію
-      if (selectedProfession.trim() !== '') {
-        // Додавання користувачевої професії до списку доступних
-        availableProfessions.push(selectedProfession);
-      } else {
-        // Показ повідомлення про необхідність ввести професію
-        const professionError = document.getElementById('profession-error');
-        professionError.textContent = 'Введіть вашу професію';
-        professionError.style.display = 'block';
-        return; // Припинити виконання функції
-      }
-    }
-  
+const selectedProfession = professionSelect.value;
+
+if (selectedProfession.trim() === '') {
+  // Показ повідомлення про необхідність вибрати професію
+  const professionError = document.getElementById('profession-error');
+  professionError.textContent = 'Виберіть вашу професію зі списку';
+  professionError.style.display = 'block';
+  return; // Припинити виконання функції
+}
+
+// Перевірка, чи обрана професія є у списку доступних
+const availableProfessions = ['Лікар', 'Вчитель', 'Інженер', 'Актор', 'Програміст', 'Дизайнер'];
+
+if (!availableProfessions.includes(selectedProfession)) {
+  // Показ повідомлення про необхідність вибрати професію зі списку
+  const professionError = document.getElementById('profession-error');
+  professionError.textContent = 'Виберіть вашу професію зі списку';
+  professionError.style.display = 'block';
+  return; // Припинити виконання функції
+}
     // Якщо обрана професія є у списку доступних, продовжити обробку форми
     const user = new User(surname, firstName, age, education, desiredPosition);
   

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,6 @@
 </head>
 <body>
   <h1>Форма реєстрації користувача</h1>
-
   <form id="registration-form">
     <div>
       <label for="surname">Прізвище:</label>
@@ -34,7 +34,7 @@
     </div>
     <div>
       <label for="profession">Професія:</label>
-      <select id="profession" name="profession" required>
+      <select id="profession" name="profession" style="display: none;">
         <option value="">Виберіть професію</option>
         <option value="Лікар">Лікар</option>
         <option value="Вчитель">Вчитель</option>
@@ -44,9 +44,8 @@
         <option value="Дизайнер">Дизайнер</option>
       </select>
     </div>
-    <div id="profession-error" style="display: none; color: red;">Обрана професія недоступна. Виберіть іншу професію.</div>
+    <div id="profession-error" style="display: none; color: red;">Обрана професія недоступна. Виберіть професію зі списку.</div>
   </form>
-
   <script src="main.js"></script>
 </body>
 </html>
