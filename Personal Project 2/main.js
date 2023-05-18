@@ -126,11 +126,12 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     console.error('Помилка:', error.message);
   }
 });
-  // Видалення даних користувачів з LocalStorage при оновленні сторінки
-  window.addEventListener('beforeunload', () => {
-    localStorage.removeItem('users');
-  });
-  
-  // Ініціалізація
+
+// Видалення даних користувачів з LocalStorage при оновленні сторінки
+window.addEventListener('beforeunload', () => {
+  localStorage.removeItem('users');
+});
+
+// Ініціалізація
 loadUserDataFromLocalStorage();
 updateNetworkStatus(navigator.onLine);
