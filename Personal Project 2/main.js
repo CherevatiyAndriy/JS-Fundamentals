@@ -84,8 +84,8 @@ class User {
     updateNetworkStatus(false);
   });
   
-  // Обробка події надсилання форми
-  document.getElementById('registration-form').addEventListener('submit', (event) => {
+ // Обробка події надсилання форми
+document.getElementById('registration-form').addEventListener('submit', (event) => {
     event.preventDefault(); // Зупинка стандартної поведінки форми
   
     const surname = document.getElementById('surname').value;
@@ -93,6 +93,10 @@ class User {
     const age = document.getElementById('age').value;
     const education = document.getElementById('education').value;
     const desiredPosition = document.getElementById('desiredPosition').value;
+  
+    // Показати список професій
+    const professionSelect = document.getElementById('profession');
+    professionSelect.style.display = 'block';
   
     const user = new User(surname, firstName, age, education, desiredPosition);
   
@@ -105,12 +109,13 @@ class User {
         }
       })
       .then(() => {
-        // Очищення полів форми
+        // Очищення полів форми та сховати список професій
         document.getElementById('surname').value = '';
         document.getElementById('firstName').value = '';
         document.getElementById('age').value = '';
         document.getElementById('education').value = '';
         document.getElementById('desiredPosition').value = '';
+        professionSelect.style.display = 'none';
   
         // Видалення даних з LocalStorage
         localStorage.removeItem('users');
@@ -119,7 +124,6 @@ class User {
         console.error('Помилка при обробці даних');
       });
   });
-  
   // Ініціалізація
   loadUserDataFromLocalStorage();
   updateNetworkStatus(navigator.onLine);
