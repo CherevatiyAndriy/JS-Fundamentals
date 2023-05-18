@@ -137,14 +137,6 @@ class User {
         console.error(error);
       });
   });
-  // Оголошення змінної professionError та отримання елемента
-const professionError = document.getElementById('profession-error');
-
-// Перевірка, чи обрана професія є у списку доступних
-if (!availableProfessions.includes(selectedProfession)) {
-  professionError.style.display = 'block';
-  return; // Зупинка виконання функції при недійсній професії
-}
 // Ініціалізація
 loadUserDataFromLocalStorage();
 updateNetworkStatus(navigator.onLine);
