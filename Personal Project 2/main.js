@@ -133,7 +133,11 @@ class User {
         professionSelect.value = '';
         professionError.style.display = 'none';
       })
+      .catch((error) => {
+        console.error(error);
+      });
   });
-// Ініціалізація
-loadUserDataFromLocalStorage();
-updateNetworkStatus(navigator.onLine);
+  
+  // Ініціалізація
+  loadUserDataFromLocalStorage();
+  updateNetworkStatus(navigator.onLine);
