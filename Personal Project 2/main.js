@@ -139,9 +139,6 @@ class User {
         professionSelect.value = '';
         const professionError = document.getElementById('profession-error');
         professionError.style.display = 'none';
-        window.addEventListener('beforeunload', () => {
-        localStorage.removeItem('users');
-        });
       })
       .catch((error) => {
         console.error(error);
