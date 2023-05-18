@@ -99,23 +99,29 @@ class User {
     const selectedProfession = professionSelect.value;
   
     const availableProfessions = ['Лікар', 'Вчитель', 'Інженер', 'Актор', 'Програміст', 'Дизайнер'];
+  
     if (!availableProfessions.includes(selectedProfession)) {
-      const professionError = document.getElementById('profession-error');
-      professionError.style.display = 'block';
-      return; // Зупинка виконання функції при недійсній професії
+      // Перевірка, чи користувач ввів свою професію
+      if (selectedProfession.trim() !== '') {
+        // Додавання користувачевої професії до списку доступних
+        availableProfessions.push(selectedProfession);
+      } else {
+        // Показ повідомлення про необхідність ввести професію
+        const professionError = document.getElementById('profession-error');
+        professionError.textContent = 'Введіть вашу професію';
+        professionError.style.display = 'block';
+        return; // Припинити виконання функції
+      }
     }
   
-    // Створення об'єкту користувача
+    // Якщо обрана професія є у списку доступних, продовжити обробку форми
     const user = new User(surname, firstName, age, education, desiredPosition);
   
-    // Перевірка доступу до мережі
     checkNetworkStatus()
       .then((online) => {
         if (online) {
-          // Відправка даних користувача на сервер
           return sendUserDataToServer(user);
         } else {
-          // Збереження даних користувача локально
           saveUserDataLocally(user);
           throw new Error('Користувача збережено локально. Перевірте підключення до мережі для відправки на сервер.');
         }
@@ -124,13 +130,14 @@ class User {
         // Рендеринг даних користувача на сторінці
         renderUserData(user);
   
-        // Очистка полів форми
+        // Очищення полів форми
         document.getElementById('surname').value = '';
         document.getElementById('firstName').value = '';
         document.getElementById('age').value = '';
         document.getElementById('education').value = '';
         document.getElementById('desiredPosition').value = '';
         professionSelect.value = '';
+        const professionError = document.getElementById('profession-error');
         professionError.style.display = 'none';
       })
       .catch((error) => {
