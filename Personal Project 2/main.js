@@ -98,6 +98,13 @@ class User {
       }
     }
   
+    if (!availableProfessions.includes(desiredPosition)) {
+      const professionError = document.getElementById('profession-error');
+      professionError.textContent = 'Бажана посада повинна бути однією з професій';
+      professionError.style.display = 'block';
+      return;
+    }
+  
     const user = new User(surname, firstName, age, education, desiredPosition);
   
     checkNetworkStatus()
