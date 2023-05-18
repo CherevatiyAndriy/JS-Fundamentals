@@ -122,6 +122,7 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   }
 });
 
+
 // Видалення даних користувачів з LocalStorage при оновленні сторінки
 window.addEventListener('beforeunload', () => {
   localStorage.removeItem('users');
