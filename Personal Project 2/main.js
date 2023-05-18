@@ -1,55 +1,32 @@
-// Клас користувача
-class User {
-    constructor(surname, firstName, age, education, desiredPosition) {
-      this.surname = surname;
-      this.firstName = firstName;
-      this.age = age;
-      this.education = education;
-      this.desiredPosition = desiredPosition;
-    }
-  }
-  
-  // Збереження даних користувача в локальному сховищі (LocalStorage)
-  function saveUserDataLocally(user) {
+// Функція пошуку та фільтрації користувачів
+function searchUsers(keyword) {
     const users = JSON.parse(localStorage.getItem('users')) || [];
-    users.push(user);
-    localStorage.setItem('users', JSON.stringify(users));
-  }
   
-  // Відправка даних користувача на сервер (симуляція запиту API)
-  function sendUserDataToServer(user) {
-    return new Promise((resolve, reject) => {
-      // Симуляція асинхронного запиту на сервер
-      setTimeout(() => {
-        const success = Math.random() < 0.5; // 50% шанс успіху
+    // Фільтруємо користувачів за введеним ключовим словом
+    const filteredUsers = users.filter((user) => {
+      const fullName = `${user.surname} ${user.firstName}`.toLowerCase();
+      return fullName.includes(keyword.toLowerCase());
+    });
   
-        if (success) {
-          console.log('Дані користувача успішно відправлено на сервер');
-          resolve();
-        } else {
-          console.error('Помилка при відправці даних на сервер');
-          reject();
-        }
-      }, 1000);
+    // Очищаємо список користувачів на сторінці
+    const userDataContainer = document.getElementById('user-data-container');
+    userDataContainer.innerHTML = '';
+  
+    // Рендеримо відфільтрованих користувачів
+    filteredUsers.forEach((user) => {
+      renderUserData(user);
     });
   }
   
-  // Оновлення статусу мережі
-  function updateNetworkStatus(online) {
-    const statusElement = document.getElementById('network-status');
-    if (statusElement) {
-      statusElement.textContent = online ? 'Онлайн' : 'Офлайн';
-    }
-  }
+  // Обробка події подання форми пошуку
+  document.getElementById('search-form').addEventListener('submit', (event) => {
+    event.preventDefault();
   
-  // Перевірка доступу до мережі
-  function checkNetworkStatus() {
-    return new Promise((resolve) => {
-      // Симуляція перевірки статусу мережі
-      const online = Math.random() < 0.8; // 80% шанс бути онлайн
-      resolve(online);
-    });
-  }
+    const keyword = document.getElementById('search-input').value;
+    searchUsers(keyword);
+  
+    document.getElementById('search-input').value = ''; // Очищення поля вводу
+  });
   
   // Завантаження даних з LocalStorage
   function loadUserDataFromLocalStorage() {
@@ -70,56 +47,8 @@ class User {
       <p><strong>Бажана посада:</strong> ${user.desiredPosition}</p>
       <hr>
     `;
-    document.body.appendChild(userDataElement);
+    document.getElementById('user-data-container').appendChild(userDataElement);
   }
-  
-  // Оновлення статусу мережі при зміні
-  window.addEventListener('online', () => {
-    updateNetworkStatus(true);
-    loadUserDataFromLocalStorage();
-  });
-  
-  // Оновлення статусу мережі при зміні
-  window.addEventListener('offline', () => {
-    updateNetworkStatus(false);
-  });
-  
-  // Обробка події надсилання форми
-  document.getElementById('registration-form').addEventListener('submit', (event) => {
-    event.preventDefault(); // Зупинка стандартної поведінки форми
-  
-    const surname = document.getElementById('surname').value;
-    const firstName = document.getElementById('firstName').value;
-    const age = document.getElementById('age').value;
-    const education = document.getElementById('education').value;
-    const desiredPosition = document.getElementById('desiredPosition').value;
-  
-    const user = new User(surname, firstName, age, education, desiredPosition);
-  
-    checkNetworkStatus()
-      .then((online) => {
-        if (online) {
-          return sendUserDataToServer(user);
-        } else {
-          saveUserDataLocally(user);
-        }
-      })
-      .then(() => {
-        // Очищення полів форми
-        document.getElementById('surname').value = '';
-        document.getElementById('firstName').value = '';
-        document.getElementById('age').value = '';
-        document.getElementById('education').value = '';
-        document.getElementById('desiredPosition').value = '';
-  
-        // Видалення даних з LocalStorage
-        localStorage.removeItem('users');
-      })
-      .catch(() => {
-        console.error('Помилка при обробці даних');
-      });
-  });
   
   // Ініціалізація
   loadUserDataFromLocalStorage();
-  updateNetworkStatus(navigator.onLine);
