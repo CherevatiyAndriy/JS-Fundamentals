@@ -126,6 +126,9 @@ class User {
           throw new Error('Користувача збережено локально. Перевірте підключення до мережі для відправки на сервер.');
         }
       })
+      window.addEventListener('beforeunload', () => {
+      localStorage.removeItem('users');
+      });
       .then(() => {
         // Рендеринг даних користувача на сторінці
         renderUserData(user);
