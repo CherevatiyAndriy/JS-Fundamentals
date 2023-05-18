@@ -101,9 +101,17 @@ document.getElementById('registration-form').addEventListener('submit', (event) 
     const availableProfessions = ['Лікар', 'Вчитель', 'Інженер', 'Актор', 'Програміст', 'Дизайнер'];
   
     if (!availableProfessions.includes(selectedProfession)) {
-      const professionError = document.getElementById('profession-error');
-      professionError.style.display = 'block';
-      return; // Припинити виконання функції
+      // Перевірка, чи користувач ввів свою професію
+      if (selectedProfession.trim() !== '') {
+        // Додавання користувачевої професії до списку доступних
+        availableProfessions.push(selectedProfession);
+      } else {
+        // Показ повідомлення про необхідність ввести професію
+        const professionError = document.getElementById('profession-error');
+        professionError.textContent = 'Введіть вашу професію';
+        professionError.style.display = 'block';
+        return; // Припинити виконання функції
+      }
     }
   
     // Якщо обрана професія є у списку доступних, продовжити обробку форми
