@@ -130,4 +130,3 @@ window.addEventListener('beforeunload', () => {
 // Ініціалізація
 updateNetworkStatus(navigator.onLine);
 loadUserDataFromLocalStorage();
-
