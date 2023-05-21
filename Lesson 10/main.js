@@ -27,3 +27,17 @@ console.log(age4);
 
 // Завдання 3
 
+function mul(...args) {
+let result = 1;
+
+for (let i = 0; i < args.length; i++) {
+if (typeof args[i] === "number") {
+result *= args[i];
+}
+}
+return result;
+}
+console.log(mul(1, "str", 2, 3, true));
+console.log(mul(null, "str", false, true));
+
+// Завдання 4
