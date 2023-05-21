@@ -31,3 +31,6 @@ resolve(product);
 
 calcArrProduct([3, 4, 5]).then(result => console.log(result));
 calcArrProduct([5, "user2", 7, 12]).then(result => console.log(result));
+
+// Завдання 3
+
