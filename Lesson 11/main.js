@@ -61,3 +61,11 @@ console.log(result);
 
 // Завдання 4
 
+const delay = (i, time) => new Promise(resolve => setTimeout(() => resolve(i), time));
+async function showNumbers() {
+for (let i = 0; i <= 9; i++) {
+await delay(i, Math.random() * 3000);
+console.log(i);
+}
+}
+showNumbers();
