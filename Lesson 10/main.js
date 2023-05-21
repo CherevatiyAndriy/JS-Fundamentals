@@ -58,3 +58,17 @@ let values = ["div", "span", "b", "i"];
 let map = mapBuilder(keys, values);
 console.log(map.size);
 console.log(map.get(2));
+
+// Завдання 5
+
+var arr = [];
+for (var i = 0; i <= 2; i++) {
+arr[i] = (function (num) {
+return function () {
+console.log(num);
+}
+})(i);
+}
+
+arr[0]();
+arr[arr.length - 1]();
