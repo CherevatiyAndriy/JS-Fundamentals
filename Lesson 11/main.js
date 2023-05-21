@@ -34,3 +34,30 @@ calcArrProduct([5, "user2", 7, 12]).then(result => console.log(result));
 
 // Завдання 3
 
+new Promise(function(resolve, reject) {
+let number = prompt("Введіть число:");
+if (isNaN(number)) {
+reject();
+} else {
+resolve(Number(number));
+}
+})
+.catch(function(error) {
+return new Promise(function(resolve) {
+function askNumber() {
+let number = prompt("Введіть число:");
+if (isNaN(number)) {
+askNumber();
+} else {
+resolve(Number(number));
+}
+}
+askNumber();
+});
+})
+.then(function(result) {
+console.log(result);
+});
+
+// Завдання 4
+
