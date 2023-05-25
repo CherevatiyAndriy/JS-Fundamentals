@@ -38,7 +38,7 @@ function sendUserDataToServer(user) {
 function updateNetworkStatus(online) {
   const statusElement = document.getElementById('network-status');
   if (statusElement) {
-    statusElement.textContent = online ? 'Онлайн' : 'Офлайн';
+    statusElement.textContent = 'Статус мережі: ' + (online ? 'Онлайн' : 'Офлайн');
   }
 }
 
@@ -67,7 +67,7 @@ function renderUserData(user) {
     <p><strong>Ім'я:</strong> ${user.firstName}</p>
     <p><strong>Вік:</strong> ${user.age}</p>
     <p><strong>Освіта:</strong> ${user.education}</p>
-    <p><strong>Бажана п:</strong> ${user.desiredPosition}</p>
+    <p><strong>Бажана професія:</strong> ${user.desiredPosition}</p>
     <hr>
   `;
   document.body.appendChild(userDataElement);
