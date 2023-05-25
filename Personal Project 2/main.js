@@ -95,6 +95,41 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const desiredPosition = document.getElementById('desiredPosition').value;
   const profession = document.getElementById('profession').value;
 
+  const professions = [
+    "Лікар",
+    "Вчитель",
+    "Інженер",
+    "Актор",
+    "Програміст",
+    "Дизайнер",
+    "Повар",
+    "Бармен",
+    "Адміністратор",
+    "Викладач англійської мови",
+    "Економіст",
+    "Юрист",
+    "Музикант",
+    "Пекар",
+    "Продавець-консультант"
+  ];
+  
+  // Перевірка, чи введена професія відповідає списку професій
+  function validateProfession(profession) {
+    return professions.includes(profession);
+  }
+  // Оновлення обробки події надсилання форми
+document.getElementById('registration-form').addEventListener('submit', async (event) => {
+  event.preventDefault(); // Зупинка стандартної поведінки форми
+
+  // Отримання значення професії
+  const profession = document.getElementById('profession').value;
+
+  // Перевірка введеної професії
+  if (!validateProfession(profession)) {
+    showError(); // Показати повідомлення про помилку
+    return;
+  }
+
   // Створення об'єкта користувача
   const user = new User(surname, firstName, age, education, desiredPosition);
 
