@@ -127,6 +127,15 @@ window.addEventListener('offline', () => {
 document.getElementById('registration-form').addEventListener('submit', async (event) => {
   event.preventDefault(); // Зупинка стандартної поведінки форми
 
+  // Перевірка, чи введена професія відповідає списку професій
+function validateProfession(profession) {
+  return professions.includes(profession.trim());
+}
+
+// Оновлений обробник події при натисканні на кнопку "Зареєструватись"
+document.getElementById('registration-form').addEventListener('submit', async (event) => {
+  event.preventDefault(); // Зупинка стандартної поведінки форми
+
   // Отримання значень з форми
   const surname = document.getElementById('surname').value;
   const firstName = document.getElementById('firstName').value;
@@ -165,6 +174,18 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   } catch (error) {
     console.error(error);
     showError(); // Показати повідомлення про помилку
+  }
+});
+
+// Оновлений обробник події при зміні вибору професії
+document.getElementById('desiredPosition').addEventListener('change', (event) => {
+  const profession = event.target.value;
+  const registerButton = document.getElementById('register-button');
+
+  if (validateProfession(profession)) {
+    registerButton.disabled = false; // Активувати кнопку "Зареєструватись"
+  } else {
+    registerButton.disabled = true; // Деактивувати кнопку "Зареєструватись"
   }
 });
 
