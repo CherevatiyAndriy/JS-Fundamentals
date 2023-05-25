@@ -135,8 +135,8 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const desiredPosition = document.getElementById('desiredPosition').value;
 
   if (!validateProfession(desiredPosition)) {
-    const professionSelect = document.getElementById('desiredPosition');
-    professionSelect.disabled = false; // Розблокувати поле вибору професії
+    const professionSelect = document.getElementById('profession');
+    professionSelect.disabled = false; // Розблокувати список професій
     professionSelect.required = true; // Встановити обов'язковість вибору професії
     professionSelect.focus(); // Перевести фокус на поле вибору професії
 
@@ -162,7 +162,6 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     renderUserData(user); // Рендеринг даних користувача
     hideError(); // Сховати повідомлення про помилку
     document.getElementById('registration-form').reset(); // Скинути форму
-
   } catch (error) {
     console.error(error);
     showError(); // Показати повідомлення про помилку
