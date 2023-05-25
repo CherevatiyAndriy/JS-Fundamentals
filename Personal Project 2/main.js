@@ -162,17 +162,12 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     renderUserData(user); // Рендеринг даних користувача
     hideError(); // Сховати повідомлення про помилку
     document.getElementById('registration-form').reset(); // Скинути форму
-
-    // Додаткова обробка, якщо реєстрація успішна
-    const confirmationMessage = document.getElementById('confirmation-message');
-    confirmationMessage.textContent = 'Реєстрація успішна!';
-    confirmationMessage.style.display = 'block'; // Показати повідомлення про успішну реєстрацію
-
   } catch (error) {
     console.error(error);
     showError(); // Показати повідомлення про помилку
   }
 });
+
 // Видалення даних користувачів з LocalStorage при оновленні сторінки
 window.addEventListener('beforeunload', () => {
   localStorage.removeItem('users');
