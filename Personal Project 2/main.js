@@ -132,9 +132,9 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const firstName = document.getElementById('firstName').value;
   const age = document.getElementById('age').value;
   const education = document.getElementById('education').value;
-  const desiredPosition = document.getElementById('profession').value;
+  const desiredPosition = document.getElementById('desiredPosition').value;
 
-  if (!validateProfession(desiredPosition)) {
+  if (!desiredPosition || !validateProfession(desiredPosition)) {
     showError(); // Показати повідомлення про помилку
     return;
   }
