@@ -73,31 +73,6 @@ function renderUserData(user) {
   document.body.appendChild(userDataElement);
 }
 
-window.addEventListener('DOMContentLoaded', (event) => {
-  const desiredPositionInput = document.getElementById('desiredPosition');
-  const professionSelect = document.getElementById('profession');
-  const professionError = document.getElementById('profession-error');
-  const successMessage = document.getElementById('success-message');
-
-  desiredPositionInput.addEventListener('input', () => {
-    const desiredPosition = desiredPositionInput.value.trim().toLowerCase();
-    const professions = Array.from(professionSelect.options).map(option => option.value.toLowerCase());
-
-    if (professions.includes(desiredPosition)) {
-      professionError.style.display = 'block';
-      professionSelect.disabled = true;
-    } else {
-      professionError.style.display = 'none';
-      professionSelect.disabled = false;
-    }
-  });
-
-  document.getElementById('registration-form').addEventListener('submit', (event) => {
-    event.preventDefault();
-    successMessage.style.display = 'block';
-  });
-});
-
 // Оновлення статусу мережі при зміні
 window.addEventListener('online', () => {
   updateNetworkStatus(true);

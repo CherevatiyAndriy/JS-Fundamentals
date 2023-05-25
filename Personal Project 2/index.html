@@ -37,10 +37,9 @@
     <div>
       <button type="submit">Зареєструватися</button>
     </div>
-    <div id="profession-error" style="display: none; color: red;">Нажаль, бажаної професії не має, оберіть будь ласка зі списку професій</div>
-    <div id="profession-container">
+    <div>
       <label for="profession">Професія:</label>
-      <select id="profession" name="profession">
+      <select id="profession" name="profession" disabled>
         <option value="">Виберіть професію</option>
         <option value="Лікар">Лікар</option>
         <option value="Вчитель">Вчитель</option>
@@ -52,14 +51,16 @@
         <option value="Бармен">Бармен</option>
         <option value="Адміністратор">Адміністратор</option>
         <option value="Викладач англійської мови">Викладач англійської мови</option>
+        <option value="Економіст">Економіст</option>
         <option value="Юрист">Юрист</option>
         <option value="Музикант">Музикант</option>
         <option value="Пекар">Пекар</option>
         <option value="Продавець-консультант">Продавець-консультант</option>
       </select>
     </div>
-    <div id="success-message" style="display: none; color: green;">Вітаємо! Ви пройшли реєстрацію, чекайте на зворотній зв'язок!</div>
+    <div id="profession-error" style="display: none; color: red;">Обрана професія недоступна. Виберіть іншу професію.</div>
   </form>
 
-  <script src="script.js"></script>
+  <script src="main.js"></script>
 </body>
+</html>
