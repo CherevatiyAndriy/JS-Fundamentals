@@ -136,12 +136,6 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     return;
   }
 
-  const surname = document.getElementById('surname').value;
-  const firstName = document.getElementById('firstName').value;
-  const age = document.getElementById('age').value;
-  const education = document.getElementById('education').value;
-  const desiredPosition = document.getElementById('desiredPosition').value;
-
   // Створення об'єкта користувача
   const user = new User(surname, firstName, age, education, desiredPosition);
 
