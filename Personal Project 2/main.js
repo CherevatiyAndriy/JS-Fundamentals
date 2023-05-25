@@ -109,7 +109,7 @@ function validateProfession(profession) {
     "Продавець-консультант"
   ];
 
-  return professions.includes(profession);
+  return professions.includes(profession.trim());
 }
 
 // Оновлення статусу мережі при зміні
