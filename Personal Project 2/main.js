@@ -184,6 +184,9 @@ function updateRegisterButtonState() {
 // Обробник події при зміні вибору професії
 document.getElementById('profession').addEventListener('change', updateRegisterButtonState);
 
+// Виклик функції для початкової перевірки стану кнопки
+updateRegisterButtonState();
+
 // Видалення даних користувачів з LocalStorage при оновленні сторінки
 window.addEventListener('beforeunload', () => {
   localStorage.removeItem('users');
