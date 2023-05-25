@@ -121,11 +121,11 @@ document.getElementById('registration-form').addEventListener('submit', async (e
       alert('Під час реєстрації сталася помилка. Будь ласка, спробуйте пізніше.');
     }
   } else {
-    // Показ повідомлення про недопустиму професію
-    document.getElementById('profession-error').style.display = 'block';
-  }
-});
-
+   // Показ повідомлення про недопустиму професію
+const professionErrorElement = document.getElementById('profession-error');
+if (professionErrorElement) {
+  professionErrorElement.style.display = 'block';
+}
 // Видалення даних користувачів з LocalStorage при оновленні сторінки
 window.addEventListener('beforeunload', () => {
   localStorage.removeItem('users');
