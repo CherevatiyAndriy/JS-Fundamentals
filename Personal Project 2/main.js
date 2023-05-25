@@ -131,7 +131,7 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const profession = document.getElementById('profession').value;
 
   // Перевірка введеної професії
-  if (!validateProfession(profession)) {
+  if (profession !== desiredPosition) {
     showError(); // Показати повідомлення про помилку
     return;
   }
