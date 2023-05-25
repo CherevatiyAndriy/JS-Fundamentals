@@ -134,8 +134,11 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const education = document.getElementById('education').value;
   const desiredPosition = document.getElementById('desiredPosition').value;
 
-  if (!desiredPosition || !validateProfession(desiredPosition)) {
-    showError(); // Показати повідомлення про помилку
+  if (!validateProfession(desiredPosition)) {
+    const professionSelect = document.getElementById('profession');
+    professionSelect.disabled = false; // Розблокувати список професій
+    professionSelect.required = true; // Встановити обов'язковість вибору професії
+    professionSelect.focus(); // Перевести фокус на поле вибору професії
     return;
   }
 
