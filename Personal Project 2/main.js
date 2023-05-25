@@ -132,8 +132,8 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const firstName = document.getElementById('firstName').value;
   const age = document.getElementById('age').value;
   const education = document.getElementById('education').value;
-  const desiredPosition = document.getElementById('desiredPosition').value;
-
+  const desiredPosition = document.getElementById('profession').value;
+  
   if (!validateProfession(desiredPosition)) {
     const professionSelect = document.getElementById('profession');
     professionSelect.disabled = false; // Розблокувати список професій
