@@ -168,6 +168,22 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   }
 });
 
+// Оновлення активності кнопки "Зареєструватись"
+function updateRegisterButtonState() {
+  const professionSelect = document.getElementById('profession');
+  const registerButton = document.querySelector('button[type="submit"]');
+  const selectedProfession = professionSelect.value;
+
+  if (validateProfession(selectedProfession)) {
+    registerButton.disabled = false; // Активувати кнопку
+  } else {
+    registerButton.disabled = true; // Деактивувати кнопку
+  }
+}
+
+// Обробник події при зміні вибору професії
+document.getElementById('profession').addEventListener('change', updateRegisterButtonState);
+
 // Видалення даних користувачів з LocalStorage при оновленні сторінки
 window.addEventListener('beforeunload', () => {
   localStorage.removeItem('users');
