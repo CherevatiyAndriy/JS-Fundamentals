@@ -21,7 +21,7 @@ function sendUserDataToServer(user) {
   return new Promise((resolve, reject) => {
     // Симуляція асинхронного запиту на сервер
     setTimeout(() => {
-      const success = Math.random() < 0.5; // 50% шанс успіху
+      const success = Math.random() < 0.7; // 70% шанс успіху
 
       if (success) {
         console.log('Дані користувача успішно відправлено на сервер');
@@ -139,6 +139,11 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     professionSelect.disabled = false; // Розблокувати список професій
     professionSelect.required = true; // Встановити обов'язковість вибору професії
     professionSelect.focus(); // Перевести фокус на поле вибору професії
+
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.textContent = 'Бажана професія відсутня, оберіть професію зі списку!';
+    errorMessage.style.display = 'block'; // Показати повідомлення про помилку
+
     return;
   }
 
