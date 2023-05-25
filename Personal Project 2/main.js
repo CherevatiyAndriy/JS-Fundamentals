@@ -73,28 +73,24 @@ function renderUserData(user) {
   document.body.appendChild(userDataElement);
 }
 
-// Оновлення статусу мережі при зміні
-window.addEventListener('online', () => {
-  updateNetworkStatus(true);
-  loadUserDataFromLocalStorage();
-});
+// Показати повідомлення про помилку
+function showError() {
+  const errorElement = document.getElementById('profession-error');
+  if (errorElement) {
+    errorElement.style.display = 'block';
+  }
+}
 
-// Оновлення статусу мережі при зміні
-window.addEventListener('offline', () => {
-  updateNetworkStatus(false);
-});
+// Сховати повідомлення про помилку
+function hideError() {
+  const errorElement = document.getElementById('profession-error');
+  if (errorElement) {
+    errorElement.style.display = 'none';
+  }
+}
 
-// Обробка події надсилання форми
-document.getElementById('registration-form').addEventListener('submit', async (event) => {
-  event.preventDefault(); // Зупинка стандартної поведінки форми
-
-  const surname = document.getElementById('surname').value;
-  const firstName = document.getElementById('firstName').value;
-  const age = document.getElementById('age').value;
-  const education = document.getElementById('education').value;
-  const desiredPosition = document.getElementById('desiredPosition').value;
-  const profession = document.getElementById('profession').value;
-
+// Перевірка, чи введена професія відповідає списку професій
+function validateProfession(profession) {
   const professions = [
     "Лікар",
     "Вчитель",
@@ -112,12 +108,22 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     "Пекар",
     "Продавець-консультант"
   ];
-  
-  // Перевірка, чи введена професія відповідає списку професій
-  function validateProfession(profession) {
-    return professions.includes(profession);
-  }
-  // Оновлення обробки події надсилання форми
+
+  return professions.includes(profession);
+}
+
+// Оновлення статусу мережі при зміні
+window.addEventListener('online', () => {
+  updateNetworkStatus(true);
+  loadUserDataFromLocalStorage();
+});
+
+// Оновлення статусу мережі при зміні
+window.addEventListener('offline', () => {
+  updateNetworkStatus(false);
+});
+
+// Обробка події надсилання форми
 document.getElementById('registration-form').addEventListener('submit', async (event) => {
   event.preventDefault(); // Зупинка стандартної поведінки форми
 
@@ -129,6 +135,12 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     showError(); // Показати повідомлення про помилку
     return;
   }
+
+  const surname = document.getElementById('surname').value;
+  const firstName = document.getElementById('firstName').value;
+  const age = document.getElementById('age').value;
+  const education = document.getElementById('education').value;
+  const desiredPosition = document.getElementById('desiredPosition').value;
 
   // Створення об'єкта користувача
   const user = new User(surname, firstName, age, education, desiredPosition);
@@ -150,22 +162,6 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     showError(); // Показати повідомлення про помилку
   }
 });
-
-// Показати повідомлення про помилку
-function showError() {
-  const errorElement = document.getElementById('profession-error');
-  if (errorElement) {
-    errorElement.style.display = 'block';
-  }
-}
-
-// Сховати повідомлення про помилку
-function hideError() {
-  const errorElement = document.getElementById('profession-error');
-  if (errorElement) {
-    errorElement.style.display = 'none';
-  }
-}
 
 // Видалення даних користувачів з LocalStorage при оновленні сторінки
 window.addEventListener('beforeunload', () => {
