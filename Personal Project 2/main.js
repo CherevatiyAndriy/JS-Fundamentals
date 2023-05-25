@@ -131,10 +131,13 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const profession = document.getElementById('profession').value;
 
   // Перевірка введеної професії
-  if (profession !== desiredPosition) {
-    showError(); // Показати повідомлення про помилку
-    return;
-  }
+function validateProfession(profession) {
+  return professions.some((p) => p.toLowerCase() === profession.toLowerCase());
+}
+if (!validateProfession(profession)) {
+  showError(); // Показати повідомлення про помилку
+  return;
+}
 
   // Створення об'єкта користувача
   const user = new User(surname, firstName, age, education, desiredPosition);
