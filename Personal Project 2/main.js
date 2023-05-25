@@ -124,19 +124,20 @@ window.addEventListener('offline', () => {
   updateNetworkStatus(false);
 });
 
-// Обробка події надсилання форми
 document.getElementById('registration-form').addEventListener('submit', async (event) => {
   event.preventDefault(); // Зупинка стандартної поведінки форми
 
-  // Отримання значення професії
-  const profession = document.getElementById('profession').value;
+  // Отримання значень з форми
+  const surname = document.getElementById('surname').value;
+  const firstName = document.getElementById('first-name').value;
+  const age = document.getElementById('age').value;
+  const education = document.getElementById('education').value;
+  const desiredPosition = document.getElementById('profession').value;
 
-  if (!validateProfession(profession)) {
+  if (!validateProfession(desiredPosition)) {
     showError(); // Показати повідомлення про помилку
     return;
   }
-
-  // Отримання інших значень з форми (припустимо, що вони присутні)
 
   // Створення об'єкта користувача
   const user = new User(surname, firstName, age, education, desiredPosition);
