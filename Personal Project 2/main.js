@@ -108,14 +108,29 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     }
 
     renderUserData(user); // Рендеринг даних користувача
-    document.getElementById('profession-error').style.display = 'none'; // Сховати повідомлення про помилку
+    hideError(); // Сховати повідомлення про помилку
     document.getElementById('registration-form').reset(); // Скинути форму
   } catch (error) {
     console.error(error);
-    alert('Під час реєстрації сталася помилка. Будь ласка, спробуйте пізніше.');
+    showError(); // Показати повідомлення про помилку
   }
 });
 
+// Показати повідомлення про помилку
+function showError() {
+  const errorElement = document.getElementById('profession-error');
+  if (errorElement) {
+    errorElement.style.display = 'block';
+  }
+}
+
+// Сховати повідомлення про помилку
+function hideError() {
+  const errorElement = document.getElementById('profession-error');
+  if (errorElement) {
+    errorElement.style.display = 'none';
+  }
+}
 
 // Видалення даних користувачів з LocalStorage при оновленні сторінки
 window.addEventListener('beforeunload', () => {
