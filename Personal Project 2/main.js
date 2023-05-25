@@ -38,7 +38,7 @@ function sendUserDataToServer(user) {
 function updateNetworkStatus(online) {
   const statusElement = document.getElementById('network-status');
   if (statusElement) {
-    statusElement.textContent = 'Статус мережі: ' + (online ? 'Онлайн' : 'Офлайн');
+    statusElement.textContent = online ? 'Онлайн' : 'Офлайн';
   }
 }
 
@@ -67,63 +67,56 @@ function renderUserData(user) {
     <p><strong>Ім'я:</strong> ${user.firstName}</p>
     <p><strong>Вік:</strong> ${user.age}</p>
     <p><strong>Освіта:</strong> ${user.education}</p>
-    <p><strong>Бажана професія:</strong> ${user.desiredPosition}</p>
+    <p><strong>Бажана п:</strong> ${user.desiredPosition}</p>
     <hr>
   `;
-
   document.body.appendChild(userDataElement);
 }
 
-// Ініціалізація програми
-function init() {
-  // Завантаження даних з LocalStorage
+// Оновлення статусу мережі при зміні
+window.addEventListener('online', () => {
+  updateNetworkStatus(true);
   loadUserDataFromLocalStorage();
+});
 
-  // Обробник події подачі форми
-  const form = document.getElementById('registration-form');
-  if (form) {
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
+// Оновлення статусу мережі при зміні
+window.addEventListener('offline', () => {
+  updateNetworkStatus(false);
+});
 
-      const surname = document.getElementById('surname').value;
-      const firstName = document.getElementById('firstName').value;
-      const age = document.getElementById('age').value;
-      const education = document.getElementById('education').value;
-      const desiredPosition = document.getElementById('desiredPosition').value;
+// Обробка події надсилання форми
+document.getElementById('registration-form').addEventListener('submit', async (event) => {
+  event.preventDefault(); // Зупинка стандартної поведінки форми
 
-      const user = new User(surname, firstName, age, education, desiredPosition);
+  const surname = document.getElementById('surname').value;
+  const firstName = document.getElementById('firstName').value;
+  const age = document.getElementById('age').value;
+  const education = document.getElementById('education').value;
+  const desiredPosition = document.getElementById('desiredPosition').value;
+  const profession = document.getElementById('profession').value;
+  
+  
+  // Створення об'єкта користувача
+  const user = new User(surname, firstName, age, education, desiredPosition);
 
-      try {
-        const online = await checkNetworkStatus();
+  try {
+    const online = await checkNetworkStatus(); // Перевірка статусу мережі
 
-        if (online) {
-          await sendUserDataToServer(user);
-        } else {
-          saveUserDataLocally(user);
-        }
+    if (online) {
+      await sendUserDataToServer(user); // Відправка даних на сервер
+    } else {
+      saveUserDataLocally(user); // Збереження даних локально
+    }
 
-        renderUserData(user);
-
-        // Скидання значень полів форми
-        form.reset();
-      } catch (error) {
-        console.error(error);
-      }
-    });
+    renderUserData(user); // Рендеринг даних користувача
+    document.getElementById('profession-error').style.display = 'none'; // Сховати повідомлення про помилку
+    document.getElementById('registration-form').reset(); // Скинути форму
+  } catch (error) {
+    console.error(error);
+    alert('Під час реєстрації сталася помилка. Будь ласка, спробуйте пізніше.');
   }
+});
 
-  // Оновлення статусу мережі
-  window.addEventListener('online', () => {
-    updateNetworkStatus(true);
-  });
-
-  window.addEventListener('offline', () => {
-    updateNetworkStatus(false);
-  });
-}
-
-// Запуск програми після завантаження сторінки
-window.addEventListener('DOMContentLoaded', init);
 
 // Видалення даних користувачів з LocalStorage при оновленні сторінки
 window.addEventListener('beforeunload', () => {
