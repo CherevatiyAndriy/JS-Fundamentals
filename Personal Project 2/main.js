@@ -107,6 +107,16 @@ const professions = [
   "Пекар",
   "Продавець-консультант"
 ];
+document.getElementById('profession').addEventListener('change', () => {
+  const professionSelect = document.getElementById('profession');
+  const submitButton = document.querySelector('button[type="submit"]');
+  
+  if (professionSelect.value !== '') {
+    submitButton.disabled = false; // Розблокувати кнопку "Зареєструватись"
+  } else {
+    submitButton.disabled = true; // Заблокувати кнопку "Зареєструватись"
+  }
+});
 
 // Перевірка, чи введена професія відповідає списку професій
 function validateProfession(profession) {
