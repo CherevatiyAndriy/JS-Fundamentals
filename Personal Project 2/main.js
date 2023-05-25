@@ -73,6 +73,26 @@ function renderUserData(user) {
   document.body.appendChild(userDataElement);
 }
 
+var professions = ["професія1", "професія2", "професія3"]; // Список професій
+
+document.getElementById("registration-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Зупиняємо стандартну поведінку форми
+
+  // Отримуємо значення бажаної професії
+  var desiredPosition = document.getElementById("desiredPosition").value;
+
+  // Перевіряємо, чи бажана професія є в списку професій
+  if (professions.includes(desiredPosition)) {
+    // Відображаємо повідомлення про успішну реєстрацію
+    alert("Вітаємо! Ви пройшли реєстрацію, чекайте на зворотній зв'язок");
+    // Тут ви можете додати код для подальших дій після успішної реєстрації
+  } else {
+    // Відображаємо повідомлення про невідповідність бажаної професії
+    alert("Нажаль, бажаної професії не має. Будь ласка, оберіть професію зі списку професій");
+    // Тут ви можете додати код для відображення списку професій і додаткових дій
+  }
+});
+
 // Оновлення статусу мережі при зміні
 window.addEventListener('online', () => {
   updateNetworkStatus(true);
