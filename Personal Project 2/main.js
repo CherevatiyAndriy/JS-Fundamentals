@@ -94,8 +94,7 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const education = document.getElementById('education').value;
   const desiredPosition = document.getElementById('desiredPosition').value;
   const profession = document.getElementById('profession').value;
-  
-  
+
   // Створення об'єкта користувача
   const user = new User(surname, firstName, age, education, desiredPosition);
 
