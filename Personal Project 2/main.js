@@ -129,7 +129,7 @@ document.getElementById('registration-form').addEventListener('submit', async (e
 
   // Отримання значень з форми
   const surname = document.getElementById('surname').value;
-  const firstName = document.getElementById('first-name').value;
+  const firstName = document.getElementById('firstName').value;
   const age = document.getElementById('age').value;
   const education = document.getElementById('education').value;
   const desiredPosition = document.getElementById('profession').value;
