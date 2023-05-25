@@ -130,10 +130,11 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   // Отримання значення професії
   const profession = document.getElementById('profession').value;
 
-  // Перевірка введеної професії
+ // Перевірка, чи введена професія відповідає списку професій
 function validateProfession(profession) {
   return professions.some((p) => p.toLowerCase() === profession.toLowerCase());
 }
+
 if (!validateProfession(profession)) {
   showError(); // Показати повідомлення про помилку
   return;
