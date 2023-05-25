@@ -67,30 +67,35 @@ function renderUserData(user) {
     <p><strong>Ім'я:</strong> ${user.firstName}</p>
     <p><strong>Вік:</strong> ${user.age}</p>
     <p><strong>Освіта:</strong> ${user.education}</p>
-    <p><strong>Бажана професія:</strong> ${user.desiredPosition}</p>
+    <p><strong>Бажана п:</strong> ${user.desiredPosition}</p>
     <hr>
   `;
   document.body.appendChild(userDataElement);
 }
 
-var professions = ["професія1", "професія2", "професія3"]; // Список професій
+window.addEventListener('DOMContentLoaded', (event) => {
+  const desiredPositionInput = document.getElementById('desiredPosition');
+  const professionSelect = document.getElementById('profession');
+  const professionError = document.getElementById('profession-error');
+  const successMessage = document.getElementById('success-message');
 
-document.getElementById("registration-form").addEventListener("submit", function(event) {
-  event.preventDefault(); // Зупиняємо стандартну поведінку форми
+  desiredPositionInput.addEventListener('input', () => {
+    const desiredPosition = desiredPositionInput.value.trim().toLowerCase();
+    const professions = Array.from(professionSelect.options).map(option => option.value.toLowerCase());
 
-  // Отримуємо значення бажаної професії
-  var desiredPosition = document.getElementById("desiredPosition").value;
+    if (professions.includes(desiredPosition)) {
+      professionError.style.display = 'block';
+      professionSelect.disabled = true;
+    } else {
+      professionError.style.display = 'none';
+      professionSelect.disabled = false;
+    }
+  });
 
-  // Перевіряємо, чи бажана професія є в списку професій
-  if (professions.includes(desiredPosition)) {
-    // Відображаємо повідомлення про успішну реєстрацію
-    alert("Вітаємо! Ви пройшли реєстрацію, чекайте на зворотній зв'язок");
-    // Тут ви можете додати код для подальших дій після успішної реєстрації
-  } else {
-    // Відображаємо повідомлення про невідповідність бажаної професії
-    alert("Нажаль, бажаної професії не має. Будь ласка, оберіть професію зі списку професій");
-    // Тут ви можете додати код для відображення списку професій і додаткових дій
-  }
+  document.getElementById('registration-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    successMessage.style.display = 'block';
+  });
 });
 
 // Оновлення статусу мережі при зміні
