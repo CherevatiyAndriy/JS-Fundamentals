@@ -123,7 +123,6 @@ window.addEventListener('online', () => {
 window.addEventListener('offline', () => {
   updateNetworkStatus(false);
 });
-document.getElementById('desiredPosition').addEventListener('change', hideError); // Додано обробник події
 
 document.getElementById('registration-form').addEventListener('submit', async (event) => {
   event.preventDefault(); // Зупинка стандартної поведінки форми
@@ -136,11 +135,10 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const desiredPosition = document.getElementById('desiredPosition').value;
 
   if (!validateProfession(desiredPosition)) {
-    // Показати повідомлення про помилку
-    const errorMessage = document.getElementById('error-message');
-    errorMessage.textContent = 'Бажана професія відсутня, оберіть професію зі списку!';
-    errorMessage.style.display = 'block';
-
+    const professionSelect = document.getElementById('profession');
+    professionSelect.disabled = false; // Розблокувати список професій
+    professionSelect.required = true; // Встановити обов'язковість вибору професії
+    professionSelect.focus(); // Перевести фокус на поле вибору професії
     return;
   }
 
