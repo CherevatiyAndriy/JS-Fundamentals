@@ -135,7 +135,7 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     return;
   }
 
-  // Отримання інших значень форми (surname, firstName, age, education, desiredPosition)
+  // Отримання інших значень з форми (припустимо, що вони присутні)
 
   // Створення об'єкта користувача
   const user = new User(surname, firstName, age, education, desiredPosition);
