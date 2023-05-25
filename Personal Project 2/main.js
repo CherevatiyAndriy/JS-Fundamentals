@@ -161,11 +161,6 @@ document.getElementById('registration-form').addEventListener('submit', async (e
 
     renderUserData(user); // Рендеринг даних користувача
     hideError(); // Сховати повідомлення про помилку
-
-    // Дозволяє користувачу завершити реєстрацію після вибору професії зі списку
-    const submitButton = document.getElementById('submit-button');
-    submitButton.disabled = false; // Розблокувати кнопку "Зареєструватися"
-    
     document.getElementById('registration-form').reset(); // Скинути форму
   } catch (error) {
     console.error(error);
