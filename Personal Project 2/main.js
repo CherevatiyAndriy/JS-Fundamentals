@@ -73,11 +73,15 @@ function renderUserData(user) {
   document.body.appendChild(userDataElement);
 }
 
-// Оновлення статусу мережі під час завантаження сторінки
-window.addEventListener('DOMContentLoaded', async () => {
-  const online = await checkNetworkStatus();
-  updateNetworkStatus(online);
+// Оновлення статусу мережі при зміні
+window.addEventListener('online', () => {
+  updateNetworkStatus(true);
   loadUserDataFromLocalStorage();
+});
+
+// Оновлення статусу мережі при зміні
+window.addEventListener('offline', () => {
+  updateNetworkStatus(false);
 });
 
 // Обробка події надсилання форми
@@ -89,43 +93,31 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const age = document.getElementById('age').value;
   const education = document.getElementById('education').value;
   const desiredPosition = document.getElementById('desiredPosition').value;
+  const profession = document.getElementById('profession').value;
+  
+  
+  // Створення об'єкта користувача
+  const user = new User(surname, firstName, age, education, desiredPosition);
 
-  const allowedProfessions = [
-    'Лікар', 'Вчитель', 'Інженер', 'Актор', 'Програміст', 'Дизайнер',
-    'Повар', 'Бармен', 'Адміністратор', 'Викладач англійської мови',
-    'Економіст', 'Юрист', 'Музикант', 'Пекар', 'Продавець-консультант'
-  ];
+  try {
+    const online = await checkNetworkStatus(); // Перевірка статусу мережі
 
-  // Перевірка, чи бажана професія є в списку дозволених професій
-  if (allowedProfessions.includes(desiredPosition)) {
-    try {
-      const online = await checkNetworkStatus(); // Перевірка статусу мережі
-
-      if (online) {
-        const user = new User(surname, firstName, age, education, desiredPosition);
-        await sendUserDataToServer(user); // Відправка даних на сервер
-      } else {
-        const user = new User(surname, firstName, age, education, desiredPosition);
-        saveUserDataLocally(user); // Збереження даних локально
-      }
-
-      const user = new User(surname, firstName, age, education, desiredPosition);
-      renderUserData(user); // Рендеринг даних користувача
-      document.getElementById('profession-error').style.display = 'none'; // Сховати повідомлення про помилку
-      document.getElementById('registration-form').reset(); // Скинути форму
-
-      // Виведення повідомлення про успішну реєстрацію
-      alert('Вітаємо, ви пройшли реєстрацію. Чекайте на зворотній звязок.');
-    } catch (error) {
-      console.error(error);
-      alert('Під час реєстрації сталася помилка. Будь ласка, спробуйте пізніше.');
+    if (online) {
+      await sendUserDataToServer(user); // Відправка даних на сервер
+    } else {
+      saveUserDataLocally(user); // Збереження даних локально
     }
-  } else {
-   // Показ повідомлення про недопустиму професію
-const professionErrorElement = document.getElementById('profession-error');
-if (professionErrorElement) {
-  professionErrorElement.style.display = 'block';
-}
+
+    renderUserData(user); // Рендеринг даних користувача
+    document.getElementById('profession-error').style.display = 'none'; // Сховати повідомлення про помилку
+    document.getElementById('registration-form').reset(); // Скинути форму
+  } catch (error) {
+    console.error(error);
+    alert('Під час реєстрації сталася помилка. Будь ласка, спробуйте пізніше.');
+  }
+});
+
+
 // Видалення даних користувачів з LocalStorage при оновленні сторінки
 window.addEventListener('beforeunload', () => {
   localStorage.removeItem('users');
