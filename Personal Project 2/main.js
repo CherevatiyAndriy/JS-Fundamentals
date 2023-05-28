@@ -124,17 +124,6 @@ window.addEventListener('offline', () => {
   updateNetworkStatus(false);
 });
 
-document.getElementById('desiredPosition').addEventListener('change', () => {
-  const professionSelect = document.getElementById('desiredPosition');
-  const submitButton = document.querySelector('button[type="submit"]');
-
-  if (professionSelect.value !== '') {
-    submitButton.disabled = false; // Активувати кнопку "Зареєструватися"
-  } else {
-    submitButton.disabled = true; // Деактивувати кнопку "Зареєструватися"
-  }
-});
-
 document.getElementById('registration-form').addEventListener('submit', async (event) => {
   event.preventDefault(); // Зупинка стандартної поведінки форми
 
