@@ -60,7 +60,7 @@ function renderUserData(user) {
     <p><strong>Вік:</strong> ${user.age}</p>
     <p><strong>Освіта:</strong> ${user.education}</p>
     <p><strong>Контактні дані:</strong> ${user.contact}</p>
-    <p><strong>Бажана професія:</strong> ${document.getElementById('desiredPosition').value}</p>
+    <p><strong>Бажана професія:</strong> ${user.desiredPosition}</p>
     <hr>
   `;
   document.body.appendChild(userDataElement);
