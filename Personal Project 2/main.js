@@ -110,9 +110,8 @@ window.addEventListener('offline', () => {
 });
 
 document.getElementById('registration-form').addEventListener('submit', async (event) => {
-  event.preventDefault(); // Зупинка стандартної поведінки форми
+  event.preventDefault();
 
-  // Отримання значень з форми
   const surname = document.getElementById('surname').value;
   const firstName = document.getElementById('firstName').value;
   const age = document.getElementById('age').value;
@@ -121,41 +120,35 @@ document.getElementById('registration-form').addEventListener('submit', async (e
 
   if (!validateProfession(desiredPosition)) {
     const professionSelect = document.getElementById('profession');
-    professionSelect.disabled = false; // Розблокувати список професій
-    professionSelect.required = true; // Встановити обов'язковість вибору професії
-    professionSelect.focus(); // Перевести фокус на поле вибору професії
+    professionSelect.disabled = false;
+    professionSelect.required = true;
+    professionSelect.focus();
 
     const errorMessage = document.getElementById('error-message');
     errorMessage.textContent = 'Бажана професія відсутня, оберіть професію зі списку!';
-    errorMessage.style.display = 'block'; // Показати повідомлення про помилку
+    errorMessage.style.display = 'block';
 
     return;
   }
 
-  // Створення об'єкта користувача
   const user = new User(surname, firstName, age, education, desiredPosition);
 
   try {
-    const online = await checkNetworkStatus(); // Перевірка статусу мережі
+    const online = await checkNetworkStatus();
 
     if (online) {
-      await sendUserDataToServer(user); // Відправка даних на сервер
+      await sendUserDataToServer(user);
     } else {
-      saveUserDataLocally(user); // Збереження даних локально
+      saveUserDataLocally(user);
     }
 
-    renderUserData(user); // Рендеринг даних користувача
-    hideError(); // Сховати повідомлення про помилку
-    document.getElementById('registration-form').reset(); // Скинути форму
+    renderUserData(user);
+    hideError();
+    document.getElementById('registration-form').reset();
   } catch (error) {
     console.error(error);
-    showError(); // Показати повідомлення про помилку
+    showError();
   }
-});
-
-const registerButton = document.getElementById('register-button');
-registerButton.addEventListener('click', (event) => {
-  event.preventDefault(); // Зупинка стандартної поведінки кнопки
 });
 
 window.addEventListener('beforeunload', () => {
