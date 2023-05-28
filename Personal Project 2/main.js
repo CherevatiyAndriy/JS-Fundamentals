@@ -8,6 +8,7 @@ class User {
     this.desiredPosition = desiredPosition;
   }
 }
+
 function saveUserDataLocally(user) {
   const users = JSON.parse(localStorage.getItem('users')) || [];
   users.push(user);
@@ -58,12 +59,13 @@ function renderUserData(user) {
     <p><strong>Ім'я:</strong> ${user.firstName}</p>
     <p><strong>Вік:</strong> ${user.age}</p>
     <p><strong>Освіта:</strong> ${user.education}</p>
-    <p><strong>Контактні дані:</strong> ${document.getElementById('contact').value}</p>
+    <p><strong>Контактні дані:</strong> ${user.contact}</p>
     <p><strong>Бажана професія:</strong> ${user.desiredPosition}</p>
     <hr>
   `;
   document.body.appendChild(userDataElement);
   document.getElementById('contact').value = '';
+  document.getElementById('desiredPosition').value = '';
 }
 
 function showError() {
