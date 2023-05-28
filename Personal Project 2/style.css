@@ -68,16 +68,16 @@ button[type="submit"]:hover {
 #network-status {
   margin-bottom: 30px;
   font-weight: bold;
-  color: green;
+  color: rgb(0, 0, 0);
   font-size: 30px; 
+}
+
+#network-status .online {
+  color: green;
 }
 
 #network-status.offline {
   color: red; 
-}
-
-#network-status {
-  color: black;
 }
 
 #error-message {
