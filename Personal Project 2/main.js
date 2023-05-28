@@ -138,6 +138,9 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     document.getElementById('registration-form').submit();
   }
   
+  document.getElementById('registration-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+  
   const user = new User(surname, firstName, age, education, desiredPosition);
 
   try {
