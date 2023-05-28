@@ -146,8 +146,7 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     return;
   }
 
-  const user = new User(surname, firstName, age, education, desiredPosition);
-
+  const user = new User(surname, firstName, age, education, contact, desiredPosition);
   try {
     const online = await checkNetworkStatus();
 
