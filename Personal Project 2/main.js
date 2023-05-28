@@ -162,10 +162,36 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     renderUserData(user); // Рендеринг даних користувача
     hideError(); // Сховати повідомлення про помилку
     document.getElementById('registration-form').reset(); // Скинути форму
+    document.getElementById('profession').disabled = false; // Розблокувати список професій
+    document.getElementById('profession').required = false; // Зробити список професій необов'язковим
   } catch (error) {
     console.error(error);
     showError(); // Показати повідомлення про помилку
   }
+});
+
+document.getElementById('profession').addEventListener('focus', () => {
+  hideError(); // Сховати повідомлення про помилку при фокусуванні на полі професії
+});
+
+document.getElementById('register-button').addEventListener('click', async (event) => {
+  event.preventDefault(); // Зупинка стандартної поведінки кнопки
+
+  const professionSelect = document.getElementById('profession');
+  professionSelect.disabled = false; // Розблокувати список професій
+  professionSelect.required = true; // Встановити обов'язковість вибору професії
+  professionSelect.focus(); // Перевести фокус на поле вибору професії
+});
+
+// Оновлення статусу мережі при зміні
+window.addEventListener('online', () => {
+  updateNetworkStatus(true);
+  loadUserDataFromLocalStorage();
+});
+
+// Оновлення статусу мережі при зміні
+window.addEventListener('offline', () => {
+  updateNetworkStatus(false);
 });
 
 // Видалення даних користувачів з LocalStorage при оновленні сторінки
