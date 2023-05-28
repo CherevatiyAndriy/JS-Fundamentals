@@ -120,11 +120,17 @@ function validateProfession(profession) {
     const errorMessage = document.getElementById('error-message');
     errorMessage.textContent = 'Бажана професія відсутня, оберіть професію зі списку!';
     errorMessage.style.display = 'block'; // Показати повідомлення про помилку
+
+    // Додати подію 'input' на поле вибору професії
+    professionSelect.addEventListener('input', () => {
+      if (validateProfession(professionSelect.value)) {
+        hideError(); // Сховати повідомлення про помилку
+      }
+    });
   }
 
   return isValid;
 }
-
 
 // Оновлення статусу мережі при зміні
 window.addEventListener('online', () => {
