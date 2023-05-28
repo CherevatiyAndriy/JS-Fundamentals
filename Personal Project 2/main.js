@@ -78,6 +78,11 @@ function hideError() {
   }
 }
 
+function updateDesiredPosition(selectElement) {
+  const desiredPositionInput = document.getElementById('desiredPosition');
+  desiredPositionInput.value = selectElement.value;
+}
+
 const professions = [
   "Лікар",
   "Вчитель",

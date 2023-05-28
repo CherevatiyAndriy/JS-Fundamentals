@@ -40,7 +40,7 @@
     <div id="error-message" style="display: none; color: red;"></div>
     <div>
       <label for="profession">Професія:</label>
-      <select id="profession" name="profession" required disabled>
+      <select id="profession" name="profession" required disabled onchange="updateDesiredPosition(this)">
         <option value="">Виберіть професію</option>
         <option value="Лікар">Лікар</option>
         <option value="Вчитель">Вчитель</option>
