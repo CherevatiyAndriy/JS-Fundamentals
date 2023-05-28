@@ -82,8 +82,10 @@ function hideError() {
 }
 
 function updateDesiredPosition(selectElement) {
-  const desiredPositionInput = document.getElementById('desiredPosition');
-  desiredPositionInput.value = selectElement.value;
+  const desiredPositionElement = document.getElementById('desiredPosition');
+  if (desiredPositionElement) {
+    desiredPositionElement.value = selectElement.value;
+  }
 }
 
 const professions = [
