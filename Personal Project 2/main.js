@@ -72,14 +72,14 @@ function renderUserData(user) {
 }
 
 function showError() {
-  const errorElement = document.getElementById('profession-error');
+  const errorElement = document.getElementById('error-message');
   if (errorElement) {
     errorElement.style.display = 'block';
   }
 }
 
 function hideError() {
-  const errorElement = document.getElementById('profession-error');
+  const errorElement = document.getElementById('error-message');
   if (errorElement) {
     errorElement.style.display = 'none';
   }
