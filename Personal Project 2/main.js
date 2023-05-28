@@ -72,15 +72,14 @@ function renderUserData(user) {
 }
 
 function showError() {
-  const errorElement = document.getElementById('error-message');
+  const errorElement = document.getElementById('profession-error');
   if (errorElement) {
-    errorElement.textContent = 'Помилка при відправці даних';
     errorElement.style.display = 'block';
   }
 }
 
 function hideError() {
-  const errorElement = document.getElementById('error-message');
+  const errorElement = document.getElementById('profession-error');
   if (errorElement) {
     errorElement.style.display = 'none';
   }
