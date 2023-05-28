@@ -120,6 +120,7 @@ document.getElementById('registration-form').addEventListener('submit', async (e
 
   if (!validateProfession(desiredPosition)) {
     const professionSelect = document.getElementById('profession');
+    professionSelect.disabled = false;
     professionSelect.required = true;
     professionSelect.focus();
 
@@ -144,9 +145,6 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     renderUserData(user);
     hideError();
     document.getElementById('registration-form').reset();
-    
-    const professionSelect = document.getElementById('profession');
-    professionSelect.disabled = true; // Встановлюємо знову значення `disabled`
   } catch (error) {
     console.error(error);
     showError();
