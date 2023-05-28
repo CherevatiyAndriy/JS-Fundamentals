@@ -150,6 +150,7 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     renderUserData(user);
     hideError();
     document.getElementById('registration-form').reset();
+    document.getElementById('profession').disabled = true; // Робимо поле "Професія" недоступним
   } catch (error) {
     console.error(error);
     showError();
