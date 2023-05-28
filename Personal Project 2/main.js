@@ -81,6 +81,11 @@ function hideError() {
   }
 }
 
+function updateDesiredPosition(selectElement) {
+  const desiredPositionInput = document.getElementById('desiredPosition');
+  desiredPositionInput.value = selectElement.value;
+}
+
 function validateProfession(desiredPosition) {
   const validProfessions = [
     'Лікар',
@@ -175,3 +180,4 @@ document.getElementById('registration-form').addEventListener('submit', async (e
 });
 
 updateNetworkStatus(navigator.onLine);
+loadUserDataFromLocalStorage();
