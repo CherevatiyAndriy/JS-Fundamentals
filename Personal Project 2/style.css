@@ -52,14 +52,11 @@ button[type="submit"]:hover {
 #network-status {
   margin-bottom: 10px;
   font-weight: bold;
-}
-
-#network-status.online {
-  color: green;
+  color: green; /* Зелений колір за замовчуванням */
 }
 
 #network-status.offline {
-  color: red;
+  color: red; /* Червоний колір для офлайн статусу */
 }
 
 #error-message {
