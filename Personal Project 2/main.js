@@ -82,10 +82,8 @@ function hideError() {
 }
 
 function updateDesiredPosition(selectElement) {
-  const desiredPositionElement = document.getElementById('desiredPosition');
-  if (desiredPositionElement) {
-    desiredPositionElement.value = selectElement.value;
-  }
+  const desiredPositionInput = document.getElementById('desiredPosition');
+  desiredPositionInput.value = selectElement.value;
 }
 
 const professions = [
@@ -165,6 +163,10 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     console.error(error);
     showError();
   }
+});
+
+window.addEventListener('beforeunload', () => {
+  localStorage.removeItem('users');
 });
 
 updateNetworkStatus(navigator.onLine);
