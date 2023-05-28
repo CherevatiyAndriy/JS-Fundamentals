@@ -54,11 +54,11 @@ button[type="submit"]:hover {
   font-weight: bold;
 }
 
-#network-status .online {
+#network-status .Онлайн {
   color: green;
 }
 
-#network-status .offline {
+#network-status .Офлайн {
   color: red;
 }
 
