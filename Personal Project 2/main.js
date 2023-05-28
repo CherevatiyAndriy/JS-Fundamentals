@@ -124,6 +124,7 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const firstName = document.getElementById('firstName').value;
   const age = document.getElementById('age').value;
   const education = document.getElementById('education').value;
+  const contact = document.getElementById('contact').value;
   const desiredPosition = document.getElementById('desiredPosition').value;
 
   if (!validateProfession(desiredPosition)) {
@@ -139,7 +140,7 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     return;
   }
 
-  const user = new User(surname, firstName, age, education, desiredPosition);
+  const user = new User(surname, firstName, age, education, contact, desiredPosition);
 
   try {
     const online = await checkNetworkStatus();
