@@ -35,19 +35,6 @@ div {
   margin-bottom: 10px;
 }
 
-div label {
-  display: inline-block;
-  width: 100px;
-  font-weight: bold;
-}
-
-div input[type="text"] {
-  width: 250px;
-  padding: 5px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
 label {
   display: inline-block;
   width: 100px;
