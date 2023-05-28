@@ -81,38 +81,45 @@ function hideError() {
   }
 }
 
-function updateDesiredPosition(selectElement) {
-  const desiredPositionElement = document.getElementById('desiredPosition');
-  if (desiredPositionElement) {
-    desiredPositionElement.value = selectElement.value;
-  }
+function validateProfession(desiredPosition) {
+  const validProfessions = [
+    'Лікар',
+    'Вчитель',
+    'Інженер',
+    'Актор',
+    'Програміст',
+    'Дизайнер',
+    'Повар',
+    'Бармен',
+    'Адміністратор',
+    'Викладач англійської мови',
+    'Економіст',
+    'Юрист',
+    'Музикант',
+    'Пекар',
+    'Продавець-консультант'
+  ];
+  return validProfessions.includes(desiredPosition);
 }
 
-const professions = [
-  "Лікар",
-  "Вчитель",
-  "Інженер",
-  "Актор",
-  "Програміст",
-  "Дизайнер",
-  "Повар",
-  "Бармен",
-  "Адміністратор",
-  "Викладач англійської мови",
-  "Економіст",
-  "Юрист",
-  "Музикант",
-  "Пекар",
-  "Продавець-консультант"
-];
+document.addEventListener('DOMContentLoaded', () => {
+  loadUserDataFromLocalStorage();
+});
 
-function validateProfession(profession) {
-  return professions.includes(profession.trim());
-}
+window.addEventListener('beforeunload', () => {
+  const surname = document.getElementById('surname').value;
+  const firstName = document.getElementById('firstName').value;
+  const age = document.getElementById('age').value;
+  const education = document.getElementById('education').value;
+  const contact = document.getElementById('contact').value;
+  const desiredPosition = document.getElementById('desiredPosition').value;
+
+  const user = new User(surname, firstName, age, education, contact, desiredPosition);
+  saveUserDataLocally(user);
+});
 
 window.addEventListener('online', () => {
   updateNetworkStatus(true);
-  loadUserDataFromLocalStorage();
 });
 
 window.addEventListener('offline', () => {
@@ -168,4 +175,3 @@ document.getElementById('registration-form').addEventListener('submit', async (e
 });
 
 updateNetworkStatus(navigator.onLine);
-loadUserDataFromLocalStorage();
