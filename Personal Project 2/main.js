@@ -127,7 +127,6 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const contact = document.getElementById('contact').value;
   const desiredPosition = document.getElementById('desiredPosition').value;
 
-  // Перевірка віку
   if (age < 18) {
     alert('Вибачте, ви не можете завершити реєстрацію, так як ви не досягли повноліття.');
     return;
@@ -159,7 +158,7 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     renderUserData(user);
     hideError();
     document.getElementById('registration-form').reset();
-    document.getElementById('profession').disabled = true; // Робимо поле "Професія" недоступним
+    document.getElementById('profession').disabled = true;
   } catch (error) {
     console.error(error);
     showError();
