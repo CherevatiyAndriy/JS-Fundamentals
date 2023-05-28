@@ -74,6 +74,7 @@ function renderUserData(user) {
 function showError() {
   const errorElement = document.getElementById('error-message');
   if (errorElement) {
+    errorElement.textContent = 'Помилка при відправці даних';
     errorElement.style.display = 'block';
   }
 }
