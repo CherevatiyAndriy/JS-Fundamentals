@@ -69,7 +69,6 @@ function renderUserData(user) {
   `;
   document.body.appendChild(userDataElement);
   document.getElementById('contact').value = '';
-  localStorage.removeItem('users');
 }
 
 function showError() {
