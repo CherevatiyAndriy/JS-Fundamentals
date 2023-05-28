@@ -10,7 +10,6 @@ class User {
 }
 function saveUserDataLocally(user) {
   const users = JSON.parse(localStorage.getItem('users')) || [];
-  user.contact = document.getElementById('contact').value; // Отримання значення поля "Контактні дані"
   users.push(user);
   localStorage.setItem('users', JSON.stringify(users));
 }
