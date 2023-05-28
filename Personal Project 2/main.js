@@ -40,13 +40,9 @@ function updateNetworkStatus(online) {
 
 function checkNetworkStatus() {
   return new Promise((resolve) => {
-    const online = checkNetworkAccess();
+    const online = navigator.onLine;
     resolve(online);
   });
-}
-
-function checkNetworkAccess() {
-  return navigator.onLine;
 }
 
 function loadUserDataFromLocalStorage() {
@@ -68,18 +64,18 @@ function renderUserData(user) {
     <hr>
   `;
   document.body.appendChild(userDataElement);
-  document.getElementById('contact').value = '';
 }
 
 function showError() {
-  const errorElement = document.getElementById('profession-error');
+  const errorElement = document.getElementById('error-message');
   if (errorElement) {
+    errorElement.textContent = 'Помилка при відправці даних';
     errorElement.style.display = 'block';
   }
 }
 
 function hideError() {
-  const errorElement = document.getElementById('profession-error');
+  const errorElement = document.getElementById('error-message');
   if (errorElement) {
     errorElement.style.display = 'none';
   }
