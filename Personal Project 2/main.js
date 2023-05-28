@@ -118,17 +118,24 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const education = document.getElementById('education').value;
   const desiredPosition = document.getElementById('desiredPosition').value;
 
-  if (!validateProfession(desiredPosition)) {
+  function completeRegistration() {
     const professionSelect = document.getElementById('profession');
-    professionSelect.disabled = false;
-    professionSelect.required = true;
-    professionSelect.focus();
-
-    const errorMessage = document.getElementById('error-message');
-    errorMessage.textContent = 'Бажана професія відсутня, оберіть професію зі списку!';
-    errorMessage.style.display = 'block';
-
-    return;
+    const desiredPosition = document.getElementById('desiredPosition');
+  
+    if (!validateProfession(desiredPosition.value)) {
+      professionSelect.disabled = false;
+      professionSelect.required = true;
+      professionSelect.focus();
+  
+      const errorMessage = document.getElementById('error-message');
+      errorMessage.textContent = 'Бажана професія відсутня, оберіть професію зі списку!';
+      errorMessage.style.display = 'block';
+  
+      return;
+    }
+  
+    desiredPosition.value = professionSelect.value;
+    document.getElementById('registration-form').submit();
   }
 
   const user = new User(surname, firstName, age, education, desiredPosition);
