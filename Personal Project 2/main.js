@@ -124,8 +124,13 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const firstName = document.getElementById('firstName').value;
   const age = document.getElementById('age').value;
   const education = document.getElementById('education').value;
-  const contact = document.getElementById('contact').value;
   const desiredPosition = document.getElementById('desiredPosition').value;
+
+  // Перевірка віку
+  if (age < 18) {
+    alert('Вибачте, ви не можете завершити реєстрацію, так як ви не досягли повноліття.');
+    return;
+  }
 
   if (!validateProfession(desiredPosition)) {
     const professionSelect = document.getElementById('profession');
@@ -140,10 +145,11 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     return;
   }
 
-  const user = new User(surname, firstName, age, education, contact, desiredPosition);
+  const user = new User(surname, firstName, age, education, desiredPosition);
 
   try {
     const online = await checkNetworkStatus();
+
     if (online) {
       await sendUserDataToServer(user);
     } else {
@@ -153,7 +159,7 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     renderUserData(user);
     hideError();
     document.getElementById('registration-form').reset();
-    document.getElementById('profession').disabled = true;
+    document.getElementById('profession').disabled = true; // Робимо поле "Професія" недоступним
   } catch (error) {
     console.error(error);
     showError();
