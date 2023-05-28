@@ -137,7 +137,7 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     desiredPosition.value = professionSelect.value;
     document.getElementById('registration-form').submit();
   }
-
+  
   const user = new User(surname, firstName, age, education, desiredPosition);
 
   try {
