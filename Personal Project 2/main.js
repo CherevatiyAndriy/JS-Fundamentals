@@ -49,20 +49,6 @@ function checkNetworkAccess() {
   return navigator.onLine;
 }
 
-// Отримання посилань на поля
-const professionSelect = document.getElementById('profession');
-const desiredPositionInput = document.getElementById('desiredPosition');
-
-// Додавання події mouseover для очищення полів
-professionSelect.addEventListener('mouseover', clearFieldValue);
-desiredPositionInput.addEventListener('mouseover', clearFieldValue);
-
-// Функція для очищення значень полів
-function clearFieldValue(event) {
-  event.target.value = '';
-}
-
-
 function loadUserDataFromLocalStorage() {
   const users = JSON.parse(localStorage.getItem('users')) || [];
   users.forEach((user) => {
