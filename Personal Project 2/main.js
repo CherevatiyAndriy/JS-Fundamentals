@@ -134,8 +134,9 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const education = document.getElementById('education').value;
   const desiredPosition = document.getElementById('desiredPosition').value;
 
+  // Перевірка наявності обраної професії
   if (!validateProfession(desiredPosition)) {
-    const professionSelect = document.getElementById('profession');
+    const professionSelect = document.getElementById('desiredPosition');
     professionSelect.disabled = false; // Розблокувати список професій
     professionSelect.required = true; // Встановити обов'язковість вибору професії
     professionSelect.focus(); // Перевести фокус на поле вибору професії
