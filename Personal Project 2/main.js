@@ -84,8 +84,7 @@ function hideError() {
 
 function updateDesiredPosition(selectElement) {
   const desiredPositionInput = document.getElementById('desiredPosition');
-  const selectedProfession = selectElement.value;
-  desiredPositionInput.value = selectedProfession;
+  desiredPositionInput.value = selectElement.value;
 }
 
 const professions = [
