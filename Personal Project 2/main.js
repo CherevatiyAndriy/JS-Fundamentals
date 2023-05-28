@@ -110,30 +110,9 @@ const professions = [
 
 // Перевірка, чи введена професія відповідає списку професій
 function validateProfession(profession) {
-  const trimmedProfession = profession.trim();
-  const isValid = professions.includes(trimmedProfession);
-
-  if (!isValid) {
-    const professionSelect = document.getElementById('desiredPosition');
-    professionSelect.disabled = false; // Розблокувати список професій
-
-    const errorMessage = document.getElementById('error-message');
-    errorMessage.textContent = 'Бажана професія відсутня, оберіть професію зі списку!';
-    errorMessage.style.display = 'block'; // Показати повідомлення про помилку
-
-    // Додати подію 'input' на поле вибору професії
-    professionSelect.addEventListener('input', () => {
-      if (validateProfession(professionSelect.value)) {
-        hideError(); // Сховати повідомлення про помилку
-        professionSelect.removeEventListener('input', null); // Видалити обробник події 'input'
-      }
-    });
-
-    return false; // Повернути false, щоб зупинити реєстрацію
-  }
-
-  return true; // Повернути true, якщо професія є дійсною
+  return professions.includes(profession.trim());
 }
+
 // Оновлення статусу мережі при зміні
 window.addEventListener('online', () => {
   updateNetworkStatus(true);
