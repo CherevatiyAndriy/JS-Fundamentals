@@ -162,20 +162,10 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     renderUserData(user); // Рендеринг даних користувача
     hideError(); // Сховати повідомлення про помилку
     document.getElementById('registration-form').reset(); // Скинути форму
-    document.getElementById('profession').disabled = false; // Розблокувати список професій
-    document.getElementById('profession').required = false; // Зробити список професій необов'язковим
   } catch (error) {
     console.error(error);
     showError(); // Показати повідомлення про помилку
   }
-});
-
-document.getElementById('register-button').addEventListener('click', async (event) => {
-  event.preventDefault(); // Зупинка стандартної поведінки кнопки
-
-  const professionSelect = document.getElementById('profession');
-  professionSelect.disabled = false; // Розблокувати список професій
-  professionSelect.focus(); // Перевести фокус на список професій
 });
 
 // Видалення даних користувачів з LocalStorage при оновленні сторінки
