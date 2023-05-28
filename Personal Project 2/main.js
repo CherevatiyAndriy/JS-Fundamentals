@@ -134,6 +134,12 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const education = document.getElementById('education').value;
   const desiredPosition = document.getElementById('desiredPosition').value;
 
+  // Перевірка наявності обраної професії
+  if (!validateProfession(desiredPosition)) {
+    showError(); // Показати повідомлення про помилку
+    return;
+  }
+
   if (!validateProfession(desiredPosition)) {
     const professionSelect = document.getElementById('profession');
     professionSelect.disabled = false; // Розблокувати список професій
@@ -147,25 +153,25 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     return;
   }
 
-  // Створення об'єкта користувача
-  const user = new User(surname, firstName, age, education, desiredPosition);
+ // Створення об'єкта користувача
+ const user = new User(surname, firstName, age, education, desiredPosition);
 
-  try {
-    const online = await checkNetworkStatus(); // Перевірка статусу мережі
+ try {
+   const online = await checkNetworkStatus(); // Перевірка статусу мережі
 
-    if (online) {
-      await sendUserDataToServer(user); // Відправка даних на сервер
-    } else {
-      saveUserDataLocally(user); // Збереження даних локально
-    }
+   if (online) {
+     await sendUserDataToServer(user); // Відправка даних на сервер
+   } else {
+     saveUserDataLocally(user); // Збереження даних локально
+   }
 
-    renderUserData(user); // Рендеринг даних користувача
-    hideError(); // Сховати повідомлення про помилку
-    document.getElementById('registration-form').reset(); // Скинути форму
-  } catch (error) {
-    console.error(error);
-    showError(); // Показати повідомлення про помилку
-  }
+   renderUserData(user); // Рендеринг даних користувача
+   hideError(); // Сховати повідомлення про помилку
+   document.getElementById('registration-form').reset(); // Скинути форму
+ } catch (error) {
+   console.error(error);
+   showError(); // Показати повідомлення про помилку
+ }
 });
 
 // Видалення даних користувачів з LocalStorage при оновленні сторінки
