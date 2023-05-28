@@ -76,6 +76,10 @@ button[type="submit"]:hover {
   color: red; 
 }
 
+#network-status {
+  color: black;
+}
+
 #error-message {
   display: none;
   color: red;
