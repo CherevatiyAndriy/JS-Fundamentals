@@ -127,46 +127,40 @@ window.addEventListener('offline', () => {
 document.getElementById('registration-form').addEventListener('submit', async (event) => {
   event.preventDefault(); // Зупинка стандартної поведінки форми
 
-  // Отримання значень з форми
-  const surname = document.getElementById('surname').value;
-  const firstName = document.getElementById('firstName').value;
-  const age = document.getElementById('age').value;
-  const education = document.getElementById('education').value;
-  const desiredPosition = document.getElementById('desiredPosition').value;
-
-  if (!validateProfession(desiredPosition)) {
-    const professionSelect = document.getElementById('profession');
-    professionSelect.disabled = false; // Розблокувати список професій
-    professionSelect.required = true; // Встановити обов'язковість вибору професії
-    professionSelect.focus(); // Перевести фокус на поле вибору професії
-
-    const errorMessage = document.getElementById('error-message');
-    errorMessage.textContent = 'Бажана професія відсутня, оберіть професію зі списку!';
-    errorMessage.style.display = 'block'; // Показати повідомлення про помилку
-
-    return;
-  }
-
-  // Створення об'єкта користувача
-  const user = new User(surname, firstName, age, education, desiredPosition);
-
-  try {
-    const online = await checkNetworkStatus(); // Перевірка статусу мережі
-
-    if (online) {
-      await sendUserDataToServer(user); // Відправка даних на сервер
-    } else {
-      saveUserDataLocally(user); // Збереження даних локально
+  document.getElementById('registration-form').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Зупинка стандартної поведінки форми
+  
+    // Отримання значень з форми
+    const surname = document.getElementById('surname').value;
+    const firstName = document.getElementById('firstName').value;
+    const age = document.getElementById('age').value;
+    const education = document.getElementById('education').value;
+    const desiredPosition = document.getElementById('desiredPosition').value;
+  
+    if (!validateProfession(desiredPosition)) {
+      return; // Зупинити реєстрацію, якщо професія не є дійсною
     }
-
-    renderUserData(user); // Рендеринг даних користувача
-    hideError(); // Сховати повідомлення про помилку
-    document.getElementById('registration-form').reset(); // Скинути форму
-  } catch (error) {
-    console.error(error);
-    showError(); // Показати повідомлення про помилку
-  }
-});
+  
+    // Створення об'єкта користувача
+    const user = new User(surname, firstName, age, education, desiredPosition);
+  
+    try {
+      const online = await checkNetworkStatus(); // Перевірка статусу мережі
+  
+      if (online) {
+        await sendUserDataToServer(user); // Відправка даних на сервер
+      } else {
+        saveUserDataLocally(user); // Збереження даних локально
+      }
+  
+      renderUserData(user); // Рендеринг даних користувача
+      hideError(); // Сховати повідомлення про помилку
+      document.getElementById('registration-form').reset(); // Скинути форму
+    } catch (error) {
+      console.error(error);
+      showError(); // Показати повідомлення про помилку
+    }
+  });
 
 // Видалення даних користувачів з LocalStorage при оновленні сторінки
 window.addEventListener('beforeunload', () => {
