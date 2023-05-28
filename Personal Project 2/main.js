@@ -63,6 +63,8 @@ function renderUserData(user) {
     <hr>
   `;
   document.body.appendChild(userDataElement);
+  document.getElementById('contact').value = '';
+  document.getElementById('profession').value = '';
 }
 
 function showError() {
