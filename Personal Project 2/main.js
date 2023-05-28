@@ -40,7 +40,7 @@ function updateNetworkStatus(online) {
 
 function checkNetworkStatus() {
   return new Promise((resolve) => {
-    const online = Math.random() < 0.8;
+    const online = checkNetworkAccess();
     resolve(online);
   });
 }
@@ -63,7 +63,7 @@ function renderUserData(user) {
     <p><strong>Ім'я:</strong> ${user.firstName}</p>
     <p><strong>Вік:</strong> ${user.age}</p>
     <p><strong>Освіта:</strong> ${user.education}</p>
-    <p><strong>Контактні дані:</strong> ${document.getElementById('contact').value}</p>
+    <p><strong>Контактні дані:</strong> ${user.contact}</p>
     <p><strong>Бажана професія:</strong> ${user.desiredPosition}</p>
     <hr>
   `;
