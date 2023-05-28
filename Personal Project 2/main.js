@@ -135,9 +135,9 @@ document.getElementById('registration-form').addEventListener('submit', async (e
   const desiredPosition = document.getElementById('desiredPosition').value;
 
   if (!validateProfession(desiredPosition)) {
-    const professionSelect = document.getElementById('desiredPosition');
-    professionSelect.disabled = false; // Розблокувати поле вибору професії
-    professionSelect.required = true; // Встановити поле як обов'язкове
+    const professionSelect = document.getElementById('profession');
+    professionSelect.disabled = false; // Розблокувати список професій
+    professionSelect.required = true; // Встановити обов'язковість вибору професії
     professionSelect.focus(); // Перевести фокус на поле вибору професії
 
     const errorMessage = document.getElementById('error-message');
@@ -162,13 +162,12 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     renderUserData(user); // Рендеринг даних користувача
     hideError(); // Сховати повідомлення про помилку
     document.getElementById('registration-form').reset(); // Скинути форму
-    document.getElementById('desiredPosition').disabled = false; // Розблокувати поле вибору професії
-    document.getElementById('desiredPosition').required = false; // Зробити поле вибору професії необов'язковим
   } catch (error) {
     console.error(error);
     showError(); // Показати повідомлення про помилку
   }
 });
+
 // Видалення даних користувачів з LocalStorage при оновленні сторінки
 window.addEventListener('beforeunload', () => {
   localStorage.removeItem('users');
