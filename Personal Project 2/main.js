@@ -1,12 +1,11 @@
 class User {
-  constructor(surname, firstName, age, education, contact, desiredPosition, additionalData) {
+  constructor(surname, firstName, age, education, contact, desiredPosition) {
     this.surname = surname;
     this.firstName = firstName;
     this.age = age;
     this.education = education;
     this.contact = contact;
     this.desiredPosition = desiredPosition;
-    this.additionalData = additionalData;
   }
 }
 
@@ -66,11 +65,6 @@ function renderUserData(user) {
     <p><strong>Освіта:</strong> ${user.education}</p>
     <p><strong>Контактні дані:</strong> ${user.contact}</p>
     <p><strong>Бажана професія:</strong> ${user.desiredPosition}</p>
-    <p><strong>Додаткові дані:</strong></p>
-    <ul>
-      <li><strong>Додаткове поле 1:</strong> ${user.additionalData.additionalField1}</li>
-      <li><strong>Додаткове поле 2:</strong> ${user.additionalData.additionalField2}</li>
-    </ul>
     <hr>
   `;
   document.body.appendChild(userDataElement);
@@ -155,17 +149,7 @@ document.getElementById('registration-form').addEventListener('submit', async (e
     return;
   }
 
-  // Отримання додаткових даних з форми
-  const additionalField1 = document.getElementById('additionalField1').value;
-  const additionalField2 = document.getElementById('additionalField2').value;
-
-  const additionalData = {
-    additionalField1,
-    additionalField2
-  };
-
-  const user = new User(surname, firstName, age, education, contact, desiredPosition, additionalData);
-  
+  const user = new User(surname, firstName, age, education, contact, desiredPosition);
   try {
     const online = await checkNetworkStatus();
 
