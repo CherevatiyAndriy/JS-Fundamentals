@@ -31,19 +31,14 @@ form {
   align-items: center;
 }
 
-div label {
-  display: flex;
-  align-items: center;
-  width: 100px;
-  font-weight: bold;
+div {
+  margin-bottom: 10px;
 }
 
-div input[type="text"] {
-  width: 250px;
-  padding: 5px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  margin-left: 10px;
+label {
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
 }
 
 input[type="text"],
@@ -52,6 +47,7 @@ input[type="number"] {
   padding: 5px;
   border-radius: 4px;
   border: 1px solid #ccc;
+  margin-left: 10px;
 }
 
 button[type="submit"] {
