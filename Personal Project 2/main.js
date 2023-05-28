@@ -168,7 +168,6 @@ document.getElementById('registration-form').addEventListener('submit', async (e
 });
 
 window.addEventListener('beforeunload', () => {
-  localStorage.removeItem('users');
 });
 
 updateNetworkStatus(navigator.onLine);
