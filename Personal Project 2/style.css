@@ -68,12 +68,8 @@ button[type="submit"]:hover {
 #network-status {
   margin-bottom: 30px;
   font-weight: bold;
-  color: rgb(0, 0, 0);
-  font-size: 30px; 
-}
-
-#network-status .online {
   color: green;
+  font-size: 30px; 
 }
 
 #network-status.offline {
