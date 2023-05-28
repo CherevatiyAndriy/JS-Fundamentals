@@ -59,12 +59,11 @@ function renderUserData(user) {
     <p><strong>Вік:</strong> ${user.age}</p>
     <p><strong>Освіта:</strong> ${user.education}</p>
     <p><strong>Контактні дані:</strong> ${document.getElementById('contact').value}</p>
-    <p><strong>Бажана професія:</strong> ${user.desiredPosition.value}</p>
+    <p><strong>Бажана професія:</strong> ${user.desiredPosition}</p>
     <hr>
   `;
   document.body.appendChild(userDataElement);
   document.getElementById('contact').value = '';
-  document.getElementById('desiredPosition').value = '';
 }
 
 function showError() {
