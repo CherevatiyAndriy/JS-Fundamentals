@@ -45,6 +45,10 @@ function checkNetworkStatus() {
   });
 }
 
+function checkNetworkAccess() {
+  return navigator.onLine;
+}
+
 function loadUserDataFromLocalStorage() {
   const users = JSON.parse(localStorage.getItem('users')) || [];
   users.forEach((user) => {
